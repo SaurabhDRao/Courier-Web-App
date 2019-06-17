@@ -1,0 +1,87 @@
+body{
+    font-family: Tahoma;
+    color: #444;
+    letter-spacing: 1px;
+}
+
+#wrapper{
+    width: 90%;
+    max-width: 960px;
+    margin: 20px auto;
+    border-radius: 6px;
+    box-shadow: 0px 1px 6px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    padding: 0 0 20px;
+    overflow: hidden;
+    border: 1px solid lightblue;
+    align-content: center;
+}
+
+#page-banner{
+    background: lightblue ;
+    padding: 10px 0;
+
+}
+
+#page-banner h1{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+#details input{
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #444;
+}
+
+#extra{
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #444;
+}
+
+.btn{
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    padding: 8px;
+    font-size: 16px;
+    color: #444;
+}
+
+.btn button{
+    height:50px;
+    width:100px;
+    font-size: 20px;
+    background: lightblue;
+    border-radius: 5px;
+    font-family: cursive;
+    cursor: pointer;
+}
+
+.login{
+    text-align: right;
+    padding-right:10px;
+}
+
+#dropdown{
+  margin-left: 35%;
+}
+
+#details select:nth-child(2){
+  margin-left: 150px;
+}

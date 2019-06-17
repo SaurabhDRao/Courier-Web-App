@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #0288D1;
+}
+
+.login-container, .profile-container, .users-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-container {
+    background-color: #fff;
+    box-shadow: 20px 20px 30px #111;
+    border-radius: 50px;
+    width: 700px;
+    height: 300px;
+    text-align: center;
+}
+
+ h1, h2 {
+    color: #0288D1;
+}
+
+.login-container input {
+    width: 400px;
+    height: 30px;
+    margin-bottom: 15px;
+    border: 1px solid #0288D1;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.login-container button {
+    width: 420px;
+    height: 45px;
+    background: #fff;
+    border: 1px solid #0288D1;
+    font-size: 20px;
+    border-radius: 15px;
+    color: #0288D1;
+}
+
+.login-container button:hover {
+    cursor: pointer;
+    background: #0288D1;
+    color: #fff;
+}
+
+.profile-container {
+    background-color: #fff;
+    box-shadow: 20px 20px 30px #111;
+    border-radius: 50px;
+    width: 700px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.profile-container .details table {
+    margin: 0 auto;
+    text-align: left;
+    font-size: 20px;
+    border-collapse: collapse;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.profile-container .details table td, 
+.profile-container .details table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+.profile-container .details table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+  
+.profile-container .details table tr:hover {
+    background-color: #ddd;
+}
+  
+.profile-container .details table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #536DFE;
+    color: white;
+}
+
+.profile-container input {
+    width: 90%;
+    border: 1px solid #0288D1;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.profile-container button {
+    width: 100px;
+    margin-right: 15px;
+    background: #fff;
+    border: 1px solid #0288D1;
+    font-size: 20px;
+    border-radius: 15px;
+    color: #0288D1;
+}
+
+.profile-container button:hover {
+    cursor: pointer;
+    background: #0288D1;
+    color: #fff;
+}
+
+.profile-container a {
+    text-decoration: none;
+    padding: 3px 15px;
+    width: 150px;
+    margin-right: 15px;
+    background: #fff;
+    border: 1px solid red;
+    font-size: 20px;
+    border-radius: 15px;
+    color: red;
+}
+
+.profile-container a:hover {
+    cursor: pointer;
+    background: red;
+    color: #fff;
+}
+
+.users-container {
+    background-color: #fff;
+    box-shadow: 20px 20px 30px #111;
+    border-radius: 50px;
+    width: 1000px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.users-container .details table {
+    margin: 0 auto;
+    text-align: left;
+    font-size: 20px;
+    border-collapse: collapse;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.users-container .details table td, 
+.users-container .details table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+.users-container .details table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+  
+.users-container .details table tr:hover {
+    background-color: #ddd;
+}
+  
+.users-container .details table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #536DFE;
+    color: white;
+}
+
+#addNew {
+    display: none;
+}
+
+#addNew input {
+    width: 200px;
+    height: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #0288D1;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+#addNew button {
+    width: 220px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #0288D1;
+    font-size: 20px;
+    border-radius: 15px;
+    color: #0288D1;
+}
+
+#addNew button:hover {
+    cursor: pointer;
+    background: #0288D1;
+    color: #fff;
+}
+
+#editBtn, #deleteBtn {
+    text-decoration: none;
+}
+
+#editBtn {
+    color: darkblue;
+}
+
+#deleteBtn {
+    color: red;
+    float: right;
+}
+
+#toggleForm {
+    width: 400px;
+    background: #fff;
+    border: 1px solid #0288D1;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 25px;
+    color: #0288D1;
+    margin-top: 15px;
+}
+
+#toggleForm:hover {
+    color: #fff;
+    background: #0288D1;
+    cursor: pointer;
+}

@@ -24,18 +24,10 @@ h1 {
 
 #addNew button {
     width: 100px;
-    background: #fff;
-    border: 1px solid #0288D1;
-    font-size: 20px;
-    border-radius: 25px;
-    color: #0288D1;
-    padding: 5px;
 }
 
 #addNew button:hover {
-    cursor: pointer;
-    background: #0288D1;
-    color: #fff;
+    opacity: 0.8;
 }
 
 #editBtn, #deleteBtn {
