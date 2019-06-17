@@ -36,8 +36,8 @@
                         <td><%= user.email %></td>
                         <td><%= user.city %></td>
                         <td>
-                            <a id = "editBtn" href="/profile/editUserDetails/<%= user.id %>">Edit</a>
-                            <a id = "deleteBtn" href="/profile/deleteUser/<%= user.id %>">Delete</a>
+                            <a id = "editBtn" href="/profile/editUserDetails/<%= user.id %>"><i class = "fa fa-edit"></i></a>
+                            <a id = "deleteBtn" href="/profile/deleteUser/<%= user.id %>"><i class = "fa fa-trash"></i></a>
                         </td>
                     </tr>
                 <% }) %>
@@ -74,6 +74,10 @@
     <script src="/static/jquery.js"></script>
     <script src="/static/materialize/js/materialize.min.js"></script>
     <script src = "/static/js/main.js" ></script>
+
+    <script>
+        $(".sidenav").sidenav();
+    </script>
 
 </body>
 </html>
