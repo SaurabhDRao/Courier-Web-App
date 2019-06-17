@@ -231,3 +231,7 @@ body {
     background: #0288D1;
     cursor: pointer;
 }
+
+nav {
+    width: 100px;
+}

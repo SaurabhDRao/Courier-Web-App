@@ -1,6 +1,9 @@
 const router = require('express').Router();
 var mysql = require('mysql');
 const con = require('../db');
+const addNewEmployee = require("./functions/addEmployee");  
+const updateEmployee = require("./functions/updateEmployee");
+const deleteEmployee = require("./functions/deleteEmployee");
 
 const authCheck = (req,res,next) => {
   if(!req.user){
@@ -18,32 +21,11 @@ router.get("/", (req, res) => {
 });
 
 router.post("/addNewUser", (req, res) => {
-  let fname = req.body.fname;
-  let lname = req.body.lname;
-  let email = req.body.email;
-  let city = req.body.city;
-  let q = "select max(id) as id from userdetails";
-  con.query(q, (err, result) => {
-      let id;
-      if(result[0].id === null)
-          id = 1;
-      else 
-          id = result[0].id + 1;
-      q = "insert into userdetails values (" + id + ", " + mysql.escape(fname) + ", " + mysql.escape(lname) + ", " + mysql.escape(email) + ", " + mysql.escape(city) + ");";
-      con.query(q, (err, rows, fields) => {
-          if(err) throw err;
-          res.redirect("/profile/");
-      });
-  });
+  addNewEmployee(req, res);
 });
 
 router.get("/deleteUser/:id", (req, res) => {
-  let id = req.params.id;
-  let q = "delete from userdetails where id = " + id;
-  con.query(q, (err, result) => {
-      if(err) throw err;
-      res.redirect("/profile/");
-  });
+  deleteEmployee(req, res);
 });
 
 router.get("/editUserDetails/:id", (req, res) => {
@@ -55,16 +37,7 @@ router.get("/editUserDetails/:id", (req, res) => {
 });
 
 router.post("/updateUser/:id", (req, res) => {
-  let id = req.params.id;
-  let fname = req.body.fname;
-  let lname = req.body.lname;
-  let email = req.body.email;
-  let city = req.body.city;
-  let q = "update userdetails set fname = " + mysql.escape(fname) + ", lname = " + mysql.escape(lname) + ", email = " + mysql.escape(email) + ", city = " + mysql.escape(city) + " where id = " + id;
-  con.query(q, (err, row, fields) => {
-      if(err) throw err;
-      res.redirect("/profile/");
-  });
+  updateEmployee(req, res);
 });
 
 module.exports = router;

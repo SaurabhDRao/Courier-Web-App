@@ -1,0 +1,104 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #0288D1;
+}
+
+.users-container {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 20px 20px 30px #111;
+    border-radius: 50px;
+    text-align: center;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
+}
+
+.users-container .details table {
+    margin: 0 auto;
+    text-align: left;
+    font-size: 20px;
+    border-collapse: collapse;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.users-container .details table td, 
+.users-container .details table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+.users-container .details table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+  
+.users-container .details table tr:hover {
+    background-color: #ddd;
+}
+  
+.users-container .details table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #536DFE;
+    color: white;
+}
+
+.users-container h1, h2 {
+    color: #0288D1;
+}
+
+#addNew {
+    display: none;
+    width: 500px;
+    margin: 20px auto;
+}
+
+#addNew button {
+    width: 220px;
+    background: #fff;
+    border: 1px solid #0288D1;
+    font-size: 20px;
+    border-radius: 25px;
+    color: #0288D1;
+    padding: 5px;
+}
+
+#addNew button:hover {
+    cursor: pointer;
+    background: #0288D1;
+    color: #fff;
+}
+
+#editBtn, #deleteBtn {
+    text-decoration: none;
+}
+
+#editBtn {
+    color: darkblue;
+}
+
+#deleteBtn {
+    color: red;
+    float: right;
+}
+
+#toggleForm {
+    width: 400px;
+    background: #fff;
+    border: 1px solid #0288D1;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 25px;
+    color: #0288D1;
+    margin-top: 15px;
+}
+
+#toggleForm:hover {
+    color: #fff;
+    background: #0288D1;
+    cursor: pointer;
+}
