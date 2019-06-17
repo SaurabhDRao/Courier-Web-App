@@ -1,64 +1,29 @@
-
 body {
     margin: 0;
     padding: 0;
     background: #0288D1;
 }
 
-.users-container {
-    width: 1000px;
-    margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 20px 20px 30px #111;
-    border-radius: 50px;
-    text-align: center;
-    padding-bottom: 40px;
-    margin-bottom: 50px;
-}
-
-.users-container .details table {
-    margin: 0 auto;
-    text-align: left;
-    font-size: 20px;
-    border-collapse: collapse;
-    width: 80%;
-    margin-bottom: 20px;
-}
-
-.users-container .details table td, 
-.users-container .details table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-.users-container .details table tr:nth-child(even){
-    background-color: #f2f2f2;
-}
-  
-.users-container .details table tr:hover {
-    background-color: #ddd;
-}
-  
-.users-container .details table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #536DFE;
-    color: white;
-}
-
-.users-container h1, h2 {
-    color: #0288D1;
-}
-
 #addNew {
     display: none;
-    width: 500px;
     margin: 20px auto;
 }
 
+.users-container, .profile-container {
+    background: #fff;
+    text-align: center;
+    border-radius: 50px;
+    padding: 0px 50px 30px 50px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    color: #0288D1;
+    line-height: 2;
+}
+
 #addNew button {
-    width: 220px;
+    width: 100px;
     background: #fff;
     border: 1px solid #0288D1;
     font-size: 20px;
@@ -79,14 +44,13 @@ body {
 
 #deleteBtn {
     color: red;
-    float: right;
+    margin-left: 20px;
 }
 
 #toggleForm {
-    width: 400px;
     background: #fff;
     border: 1px solid #0288D1;
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 20px;
     border-radius: 25px;
     color: #0288D1;
@@ -97,4 +61,34 @@ body {
     color: #fff;
     background: #0288D1;
     cursor: pointer;
+}
+
+.profile-container {
+    width: 700px;
+    margin-top: 70px;
+}
+
+#saveBtn {
+    margin-right: 20px;
+}
+
+.profile-container a:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 35px;
+        margin-bottom: 7px;
+    }
+    .users-container {
+        padding: 0 20px 20px 20px;
+    }
+    .profile-container {
+        width: 390px;
+    }
+    .profile-container h1 {
+        font-size: 40px;
+        margin: 0;
+    }
 }

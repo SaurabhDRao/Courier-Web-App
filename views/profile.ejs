@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="/static/css/users-styles.css">
 </head>
 <body>
-    
-    <div class="profile-container">
+
+    <div class="container profile-container z-depth-4">
         <h1>Edit Details</h1>
-        <div class="details">
-            <form action="/profile/updateUser/<%= user.id %>" method = "POST">
-                    <table>
-                            <tr>
-                                <th>Firstname</th>
-                                <td><input type="text" value = "<%= user.fname %>" name = "fname"></td>
-                            </tr>
-                            <tr>
-                                <th>Lastname</th>
-                                <td><input type="text" value = "<%= user.lname %>" name = "lname"></td>
-                            </tr>
-                            <tr>
-                                <th>Email</th>
-                                <td><input type="email" value = "<%= user.email %>" name = "email"></td>
-                            </tr>
-                            <tr>
-                                <th>City</th>
-                                <td><input type="text" value = "<%= user.city %>" name = "city"></td>
-                            </tr>
-                        </table>
-                        <button id = "saveBtn">Save</button>
-                        <a href="/profile/">Back</a>
-            </form>
-        </div>
+        <form action="/profile/addNewUser" method = "POST"  class="col s12">
+            <div class="row">
+                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                    <input id="first_name" name = "fname" value = "<%= user.fname %>" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                    <input id="last_name" name = "lname" value = "<%= user.lname %>" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                    <input id="email" name = "email" value = "<%= user.email %>" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                    <input id="city" name = "city" value = "<%= user.city %>" type="text" class="validate">
+                    <label for="city">City</label>
+                </div>
+            </div>
+            <button class = "btn waves-effect waves-light lighten-1" id = "saveBtn">Save</button>
+            <a href="/profile/" class = "btn waves-effect waves-light red lighten-1">Back</a>
+        </form>
     </div>
+
+    <script src="/static/jquery.js"></script>
+    <script src="/static/materialize/js/materialize.min.js"></script>
 
 </body>
 </html>

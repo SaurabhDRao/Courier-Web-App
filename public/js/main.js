@@ -6,10 +6,10 @@ toggleFormBtn.addEventListener("click", () => {
     if(!formVisible) {
         addNewForm.style.display = "block";
         formVisible = true;
-        toggleFormBtn.textContent = "Hide add new employee form"
+        toggleFormBtn.textContent = "Hide form"
     } else {
         addNewForm.style.display = "none";
         formVisible = false;
-        toggleFormBtn.textContent = "Display add new employee form"
+        toggleFormBtn.textContent = "Show form"
     }
 });

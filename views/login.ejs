@@ -5,18 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="/static/css/login-styles.css">
 </head>
 <body>
 
-    <div class="login-container">
-        <h1>LOGIN</h1>
-        <form action="/auth/check" method = "POST">
-            <input type="username" value = "" name = "username" placeholder="Username">
-            <input type="password" value = "" name = "password" placeholder="Password">
-            <button>LOGIN</button>
-        </form>
+    <div class="row">
+        <div class="col s10 m6 l6 offset-s1 offset-m3 offset-l3 z-depth-4" id="login">
+            <h1 class="center indigo-text text-darken-2">Login</h1>
+            <div class = "row">
+                <form method="POST" action="/auth/check">
+                    <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                        <input type="text" name="username">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                        <input type="password" name="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field center col offset-l2 offset-m2 s12 m8 l8">
+                        <button class="btn waves-effect waves-light">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
+
+    <script src="/static/jquery.js"></script>
+    <script src="/static/materialize/js/materialize.min.js"></script>
 
 </body>
 </html>

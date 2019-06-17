@@ -141,36 +141,6 @@ body {
     padding-bottom: 40px;
 }
 
-.users-container .details table {
-    margin: 0 auto;
-    text-align: left;
-    font-size: 20px;
-    border-collapse: collapse;
-    width: 80%;
-    margin-bottom: 20px;
-}
-
-.users-container .details table td, 
-.users-container .details table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-.users-container .details table tr:nth-child(even){
-    background-color: #f2f2f2;
-}
-  
-.users-container .details table tr:hover {
-    background-color: #ddd;
-}
-  
-.users-container .details table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #536DFE;
-    color: white;
-}
 
 #addNew {
     display: none;
@@ -234,4 +204,11 @@ body {
 
 nav {
     width: 100px;
+}
+
+.tabs .indicator{
+    background-color: #1a237e;
+}
+.tabs .tab a:focus, .tabs .tab a:focus.active{
+    background-color: transparent;
 }

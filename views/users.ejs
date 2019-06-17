@@ -18,65 +18,72 @@
             <% include partials/navbar.ejs %>
         </header>
 
-    <div class="users-container">
-        <h1>EMPLOYEES</h1>
-        <div class = "details">
-            <table>
-                <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                    <th>City</th>
-                    <th>Options</th>
-                </tr>
-                <% users.forEach(function(user){ %>
-                    <tr>
-                        <td><%= user.fname %></td>
-                        <td><%= user.lname %></td>
-                        <td><%= user.email %></td>
-                        <td><%= user.city %></td>
-                        <td>
-                            <a id = "editBtn" href="/profile/editUserDetails/<%= user.id %>"><i class = "fa fa-edit"></i></a>
-                            <a id = "deleteBtn" href="/profile/deleteUser/<%= user.id %>"><i class = "fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                <% }) %>
-            </table>
-        </div>
-        <hr />
-        <button id = "toggleForm">Display add new employee form</button>
-        <div id = "addNew">
-            <h2>Add New Employee</h2>
-            <form action="/profile/addNewUser" method = "POST"  class="col s6">
-                <div class="row">
-                    <div class="input-field col offset-s2 s8">
-                        <input id="first_name" name = "fname" vallue = "" type="text" class="validate">
-                        <label for="first_name">First Name</label>
-                    </div>
-                    <div class="input-field col offset-s2 s8">
-                        <input id="last_name" name = "lname" vallue = "" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
-                    </div>
-                    <div class="input-field col offset-s2 s8">
-                        <input id="email" name = "email" vallue = "" type="text" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="input-field col offset-s2 s8">
-                        <input id="city" name = "city" vallue = "" type="text" class="validate">
-                        <label for="city">City</label>
-                    </div>
+        <div class="container users-container z-depth-4">
+            <h1>EMPLOYEES</h1>
+            <div class="row">
+                <div class="col s12 l12 m12">
+                    <table class="striped centered responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <% users.forEach(function(user){ %>
+                            <tr>
+                                <td><%= user.fname %></td>
+                                <td><%= user.lname %></td>
+                                <td><%= user.email %></td>
+                                <td><%= user.city %></td>
+                                <td>
+                                    <a class = "tooltipped" id = "editBtn" href="/profile/editUserDetails/<%= user.id %>" data-position="bottom" data-tooltip="Edit"><i class = "fa fa-edit"></i></a>
+                                    <a class = "tooltipped" id = "deleteBtn" href="/profile/deleteUser/<%= user.id %>" data-position="bottom" data-tooltip="Delete"><i class = "fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </table>
                 </div>
-                <button>Add</button>
-            </form>
+            </div>
+            <hr />
+            <button id = "toggleForm">Show form</button>
+            <div class = "row" id = "addNew">
+                <h4>Add New Employee</h4>
+                <form action="/profile/addNewUser" method = "POST"  class="col s12">
+                    <div class="row">
+                        <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
+                            <input id="first_name" name = "fname" vallue = "" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
+                            <input id="last_name" name = "lname" vallue = "" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                        <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
+                            <input id="email" name = "email" vallue = "" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
+                            <input id="city" name = "city" vallue = "" type="text" class="validate">
+                            <label for="city">City</label>
+                        </div>
+                    </div>
+                    <button>Add</button>
+                </form>
+            </div>
         </div>
-    </div>
 
     <script src="/static/jquery.js"></script>
     <script src="/static/materialize/js/materialize.min.js"></script>
     <script src = "/static/js/main.js" ></script>
 
     <script>
-        $(".sidenav").sidenav();
+        $(document).ready(function(){
+            $(".sidenav").sidenav();
+            $('.tooltipped').tooltip();
+        });
     </script>
 
 </body>
