@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    
+    <div class="users-container">
+        <h1>EMPLOYEES</h1>
+        <div class="details">
+            <table>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Options</th>
+                </tr>
+                <% users.forEach(function(user){ %>
+                    <tr>
+                        <td><%= user.fname %></td>
+                        <td><%= user.lname %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.city %></td>
+                        <td>
+                            <a id = "editBtn" href="/profile/editUserDetails/<%= user.id %>">Edit</a>
+                            <a id = "deleteBtn" href="/profile/deleteUser/<%= user.id %>">Delete</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </table>
+        </div>
+        <hr />
+        <button id = "toggleForm">Display add new employee form</button>
+        <div id = "addNew">
+            <h2>Add New Employee</h2>
+            <form action="/profile/addNewUser" method = "POST">
+                <input type="text" value = "" name = "fname" placeholder="Firt name"><br />
+                <input type="text" value = "" name = "lname" placeholder="Last name"><br />
+                <input type="email" value = "" name = "email" placeholder="Email"><br />
+                <input type="text" value = "" name = "city" placeholder="City"><br />
+                <button>Add</button>
+            </form>
+        </div>
+    </div>
+
+    <script src = "/static/main.js" ></script>
+
+</body>
+</html>

@@ -1,63 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Trial</title>
-    <style>
-      body{
-        font-family: arial;
-        margin: 0;
-      }
-      nav{
-        background: #ff5353;
-        padding: 20px 10px;
-      }
-      nav ul{
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0;
-      }
-      nav li{
-        list-style-type: none;
-        display: inline-block;
-        margin: 0 10px 0 0;
-      }
-      nav a{
-        color: #fff;
-        font-size: 18px;
-        background: rgba(255,255,255,0.2);
-        text-decoration: none;
-        padding: 10px;
-        display: block;
-      }
-      main,header{
-        max-width: 960px;
-        margin: 30px auto;
-        padding: 0 10px;
-        color: #333;
-      }
-      img{
-        border-radius: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <% if(user) {%>
-          <li><a href="/auth/logout">Logout</a></li>
-        <% } else { %>
-          <li><a href="/auth/login">Login</a></li>
-        <% } %>
-        <li><a href="/">Homepage</a></li>
-        <li><a href="/profile">Profile</a></li>
-      </ul>
-    </nav>
-    <header>
-      <h1>Welcome <strong><%= user.name %></strong></h1>
-    </header>
-    <main>
-      <p>Just a stupid profile page</p>
-    </main>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    
+    <div class="profile-container">
+        <h1>Edit Details</h1>
+        <div class="details">
+            <form action="/profile/updateUser/<%= user.id %>" method = "POST">
+                    <table>
+                            <tr>
+                                <th>Firstname</th>
+                                <td><input type="text" value = "<%= user.fname %>" name = "fname"></td>
+                            </tr>
+                            <tr>
+                                <th>Lastname</th>
+                                <td><input type="text" value = "<%= user.lname %>" name = "lname"></td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td><input type="email" value = "<%= user.email %>" name = "email"></td>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <td><input type="text" value = "<%= user.city %>" name = "city"></td>
+                            </tr>
+                        </table>
+                        <button id = "saveBtn">Save</button>
+                        <a href="/profile/">Back</a>
+            </form>
+        </div>
+    </div>
+
+</body>
 </html>
