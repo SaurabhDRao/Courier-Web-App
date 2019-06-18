@@ -31,7 +31,7 @@ app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
 app.get("/", (req,res) => {
-  res.redirect("/auth/login");
+  res.render("home");
 });
 
 app.listen(3000, () => {
