@@ -37,5 +37,6 @@ use courier;
 --     destaddress varchar(500),
 --     destpin int,
 --     weight varchar(20),
---     size varchar(20)
+--     size varchar(20),
+--     qrcode varchar(1500)
 -- );

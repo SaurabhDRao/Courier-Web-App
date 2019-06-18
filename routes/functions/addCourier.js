@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 const con = require('../../db');
 const uniqid = require("uniqid");
+const QRCode = require('qrcode');
 
 module.exports = (req, res) => {
     let type = req.body.type;
@@ -28,7 +29,8 @@ module.exports = (req, res) => {
             id_ = "0" + id_;
         }
         let trackId = "LTK" +  id_;
-        q = "insert into couriers values (" + id
+        QRCode.toDataURL(trackId, function (err, qrcode) {
+            q = "insert into couriers values (" + id
             + ", " + mysql.escape(trackId)
             + ", " + mysql.escape(type)
             + ", " + mysql.escape(sender)
@@ -43,10 +45,12 @@ module.exports = (req, res) => {
             + ", " + destpin
             + ", " + mysql.escape(weight)
             + ", " + mysql.escape(size)
+            + ", " + mysql.escape(qrcode)
             + ");";
-        con.query(q, (err, row, fields) => {
-            if(err) throw err;
-            res.redirect("/addCourier");
+            con.query(q, (err, row, fields) => {
+                if(err) throw err;
+                res.redirect("/profile/addCourier");
+            });
         });
     });
 }
