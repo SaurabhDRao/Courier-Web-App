@@ -7,13 +7,13 @@ use courier;
 --     password varchar(50) collate latin1_general_cs
 -- );
 
--- create table userdetails(
+-- create table empdetails(
 --     id int,
 --     name varchar(50),
 --     username varchar(6) primary key collate latin1_general_cs,
 --     post varchar(50),
 --     mobile int,
---     address varchar(50),
+--     address varchar(500),
 --     email varchar(50),
 --     password varchar(50) collate latin1_general_cs
 -- );
@@ -22,18 +22,20 @@ use courier;
 
 -- collate latin1_general_cs
 
-create table couriers(
-    id int,
-    trackId varchar(8),
-    type varchar(20),
-    sender varchar(50),
-    receiver varchar(50),
-    srcphone int,
-    destphone int,
-    srcemail varchar(50),
-    payment varchar(20),
-    srcaddress varchar(500),
-    srcpin int,
-    destaddress varchar(500),
-    destpin int,
-);
+-- create table couriers(
+--     id int,
+--     trackId varchar(8),
+--     type varchar(20),
+--     sender varchar(50),
+--     receiver varchar(50),
+--     srcphone varchar(50),
+--     destphone varchar(50),
+--     srcemail varchar(50),
+--     payment varchar(20),
+--     srcaddress varchar(500),
+--     srcpin int,
+--     destaddress varchar(500),
+--     destpin int,
+--     weight varchar(20),
+--     size varchar(20)
+-- );

@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     let mobile = req.body.mobile;
     let email = req.body.email;
     let address = req.body.address;
-    let q = "update userdetails set name = " + mysql.escape(name) 
+    let q = "update empdetails set name = " + mysql.escape(name) 
         + ", post = " + mysql.escape(post) 
         + ", email = " + mysql.escape(email) 
         + ", mobile = " + mobile

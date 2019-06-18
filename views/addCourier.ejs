@@ -17,13 +17,13 @@
 
     <div class="container add-container z-depth-4">
         <h1>Enter Courier Details</h1>
-        <form action="#" method = "POST"  class="col s12">
+        <form action="/profile/addCourier" method = "POST"  class="col s12">
             <div class="row">
                 <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <select>
+                    <select name = "type">
                       <option value="" disabled selected>Choose your option</option>
-                      <option value="1">Speed Post</option>
-                      <option value="2">Normal</option>
+                      <option value="speed">Speed Post</option>
+                      <option value="normal">Normal</option>
                     </select>
                     <label>Type of courier</label>
                 </div>
@@ -66,17 +66,17 @@
                 </div>
                 <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
                     <input id="weight" name = "weight" type="text" class="validate">
-                    <label for="weigt">WEIGHT</ltabel>
+                    <label for="weigt">WEIGHT (Unit: Kg)</ltabel>
                 </div>
                   <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
                     <input id="size" name = "size" type="text" class="validate">
                     <label for="size">SIZE (Units: meter, Format: widthXheight, Ex: 500X400)</label>
                 </div>
                 <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <select>
+                    <select name = "payment">
                       <option value="" disabled selected>Choose your option</option>
-                      <option value="1">CASH</option>
-                      <option value="2">CARD/NET BANKING</option>
+                      <option value="cash">CASH</option>
+                      <option value="card">CARD/NET BANKING</option>
                    </select>
                    <label>PAYMENT DETAIL</label>
                </div>

@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     let mobile = req.body.mobile;
     let email = req.body.email;
     let address = req.body.address;
-    let q = "select max(id) as id from userdetails";
+    let q = "select max(id) as id from empdetails";
     con.query(q, (err, result) => {
         let id;
         if(result[0].id === null)
@@ -21,7 +21,7 @@ module.exports = (req, res) => {
         }
         let username = (new Date().getFullYear() % 100) + "L" +  id_;
         let password = uniqid().substr(0, 8);
-        q = "insert into userdetails values (" + id + ", "
+        q = "insert into empdetails values (" + id + ", "
             + mysql.escape(name) + ", " 
             + mysql.escape(username) + ", "
             + mysql.escape(post) + ", "
