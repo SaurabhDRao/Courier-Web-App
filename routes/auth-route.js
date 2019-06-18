@@ -7,7 +7,7 @@ const con = require('../db');
 
 //auth login
 router.get("/login", (req,res) => {
-  res.render("login", {user: req.user});
+  res.render("login", { msg: null });
 });
 
 //auth log out
@@ -19,7 +19,11 @@ router.get("/logout", (req,res) => {
 router.post('/check',
   passport.authenticate('loginCheck', {
     successRedirect: "/profile/",
-    failureRedirect: '/auth/login'
+    failureRedirect: '/auth/failedLogin'
    }));
+
+router.get("/failedLogin", (req, res) => {
+  res.render("login", { msg: "Incorrect username or password!" })
+});
 
 module.exports = router;
