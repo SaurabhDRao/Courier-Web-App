@@ -8,7 +8,7 @@ function connectDatabase() {
           host: "localhost",
           user: keys.databases.username,
           password: keys.databases.password,
-          database: "internshipdb1"
+          database: "courier"
         });
 
         db.connect(function(err){

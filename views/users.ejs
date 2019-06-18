@@ -25,19 +25,23 @@
                     <table class="striped centered responsive-table">
                         <thead>
                             <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Designation</th>
                                 <th>Email</th>
-                                <th>City</th>
+                                <th>Mobile</th>
+                                <th>Address</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
                         <% users.forEach(function(user){ %>
                             <tr>
-                                <td><%= user.fname %></td>
-                                <td><%= user.lname %></td>
+                                <td><%= user.name %></td>
+                                <td><%= user.username %></td>
+                                <td><%= user.post %></td>
                                 <td><%= user.email %></td>
-                                <td><%= user.city %></td>
+                                <td><%= user.mobile %></td>
+                                <td><%= user.address %></td>
                                 <td>
                                     <a class = "tooltipped" id = "editBtn" href="/profile/editUserDetails/<%= user.id %>" data-position="bottom" data-tooltip="Edit"><i class = "fa fa-edit"></i></a>
                                     <a class = "tooltipped" id = "deleteBtn" href="/profile/deleteUser/<%= user.id %>" data-position="bottom" data-tooltip="Delete"><i class = "fa fa-trash"></i></a>
@@ -54,20 +58,24 @@
                 <form action="/profile/addNewUser" method = "POST"  class="col s12">
                     <div class="row">
                         <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
-                            <input id="first_name" name = "fname" vallue = "" type="text" class="validate">
-                            <label for="first_name">First Name</label>
+                            <input id="name" name = "name" value = "" type="text" class="validate">
+                            <label for="name">Full Name</label>
                         </div>
                         <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
-                            <input id="last_name" name = "lname" vallue = "" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
+                            <input id="post" name = "post" value = "" type="text" class="validate">
+                            <label for="post">Designation</label>
                         </div>
                         <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
-                            <input id="email" name = "email" vallue = "" type="email" class="validate">
+                            <input id="email" name = "email" value = "" type="email" class="validate">
                             <label for="email">Email</label>
                         </div>
                         <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
-                            <input id="city" name = "city" vallue = "" type="text" class="validate">
-                            <label for="city">City</label>
+                            <input id="mobile" name = "mobile" value = "" type="tel" class="validate">
+                            <label for="mobile">Mobile</label>
+                        </div>
+                        <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
+                            <input id="address" name = "address" value = "" type="text" class="validate">
+                            <label for="address">Address</label>
                         </div>
                     </div>
                     <button class = "btn waves-effect waves-light indigo">Add</button>

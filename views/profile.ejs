@@ -12,23 +12,27 @@
 
     <div class="container profile-container z-depth-4">
         <h1>Edit Details</h1>
-        <form action="/profile/addNewUser" method = "POST"  class="col s12">
+        <form action="/profile/updateUser/<%= user.id %>" method = "POST"  class="col s12">
             <div class="row">
                 <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="first_name" name = "fname" value = "<%= user.fname %>" type="text" class="validate">
-                    <label for="first_name">First Name</label>
+                    <input id="name" name = "name" value = "<%= user.name %>" type="text" class="validate">
+                    <label for="name">Full Name</label>
                 </div>
                 <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="last_name" name = "lname" value = "<%= user.lname %>" type="text" class="validate">
-                    <label for="last_name">Last Name</label>
+                    <input id="post" name = "post" value = "<%= user.post %>" type="text" class="validate">
+                    <label for="post">Designation</label>
                 </div>
                 <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
                     <input id="email" name = "email" value = "<%= user.email %>" type="email" class="validate">
                     <label for="email">Email</label>
                 </div>
                 <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="city" name = "city" value = "<%= user.city %>" type="text" class="validate">
-                    <label for="city">City</label>
+                    <input id="mobile" name = "mobile" value = "<%= user.mobile %>" type="text" class="validate">
+                    <label for="mobile">Mobile</label>
+                </div>
+                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                    <input id="address" name = "address" value = "<%= user.address %>" type="text" class="validate">
+                    <label for="address">Address</label>
                 </div>
             </div>
             <button class = "btn waves-effect waves-light lighten-1" id = "saveBtn">Save</button>

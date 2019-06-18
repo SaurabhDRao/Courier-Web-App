@@ -3,11 +3,17 @@ const con = require('../../db');
 
 module.exports = (req, res) => {
     let id = req.params.id;
-    let fname = req.body.fname;
-    let lname = req.body.lname;
+    let name = req.body.name;
+    let post = req.body.post;
+    let mobile = req.body.mobile;
     let email = req.body.email;
-    let city = req.body.city;
-    let q = "update userdetails set fname = " + mysql.escape(fname) + ", lname = " + mysql.escape(lname) + ", email = " + mysql.escape(email) + ", city = " + mysql.escape(city) + " where id = " + id;
+    let address = req.body.address;
+    let q = "update userdetails set name = " + mysql.escape(name) 
+        + ", post = " + mysql.escape(post) 
+        + ", email = " + mysql.escape(email) 
+        + ", mobile = " + mobile
+        + ", address = " + mysql.escape(address) 
+        + " where id = " + id;
     con.query(q, (err, row, fields) => {
         if(err) throw err;
         res.redirect("/profile/");
