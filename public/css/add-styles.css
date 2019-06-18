@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #0288D1;
+}
+
+#addNew {
+    display: none;
+    margin: 20px auto;
+}
+
+ .add-container {
+    background: #fff;
+    text-align: center;
+    border-radius: 50px;
+    padding: 0px 50px 30px 50px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    color: #0288D1;
+    line-height: 2;
+}
+
+#addNew button {
+    width: 100px;
+}
+
+#addNew button:hover {
+    opacity: 0.8;
+}
+
+
+.add-container {
+    width: 700px;
+    margin-top: 30px;
+}
+
+#saveBtn {
+    margin-right: 20px;
+}
+
+.add-container a:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 35px;
+        margin-bottom: 7px;
+    }
+    
+    .add-container {
+        width: 390px;
+    }
+    .add-container h1 {
+        font-size: 40px;
+        margin: 0;
+    }
+}

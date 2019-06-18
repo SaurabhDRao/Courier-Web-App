@@ -21,3 +21,19 @@ use courier;
 -- insert into admin values (1, "admin", "iamadmin");
 
 -- collate latin1_general_cs
+
+create table couriers(
+    id int,
+    trackId varchar(8),
+    type varchar(20),
+    sender varchar(50),
+    receiver varchar(50),
+    srcphone int,
+    destphone int,
+    srcemail varchar(50),
+    payment varchar(20),
+    srcaddress varchar(500),
+    srcpin int,
+    destaddress varchar(500),
+    destpin int,
+);

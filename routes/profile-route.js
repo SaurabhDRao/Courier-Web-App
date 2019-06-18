@@ -40,4 +40,8 @@ router.post("/updateUser/:id", authCheck, (req, res) => {
   updateEmployee(req, res);
 });
 
+router.get("/addCourier", authCheck, (req, res) => {
+  res.render("addCourier");
+});
+
 module.exports = router;
