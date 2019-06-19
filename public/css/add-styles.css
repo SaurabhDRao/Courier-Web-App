@@ -44,6 +44,10 @@ h1 {
     opacity: 0.85;
 }
 
+.btn {
+    margin-right: 10px;
+}
+
 @media (max-width: 480px) {
     h1 {
         font-size: 35px;

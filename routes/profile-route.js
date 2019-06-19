@@ -5,6 +5,7 @@ const addNewEmployee = require("./functions/addEmployee");
 const updateEmployee = require("./functions/updateEmployee");
 const deleteEmployee = require("./functions/deleteEmployee");
 const addCourier = require("./functions/addCourier");
+const contact = require("./functions/contact");
 
 const authCheck = (req,res,next) => {
   if(!req.user){
@@ -38,5 +39,7 @@ router.post("/updateUser/:id", authCheck, (req, res) => { updateEmployee(req, re
 router.get("/addCourier", authCheck, (req, res) => { res.render("addCourier"); });
 
 router.post("/addCourier", authCheck, (req, res) => { addCourier(req, res); });
+
+router.post("/contact", (req, res) => { contact(req, res); })
 
 module.exports = router;

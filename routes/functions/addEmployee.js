@@ -28,7 +28,8 @@ module.exports = (req, res) => {
             + mobile + ", "
             + mysql.escape(address) + ", "
             + mysql.escape(email) + ", " 
-            + mysql.escape(password) + ");";
+            + mysql.escape(password) + ", "
+            + req.user.branchid + ");"
         console.log(q);
         con.query(q, (err, rows, fields) => {
             if(err) throw err;

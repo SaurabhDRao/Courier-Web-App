@@ -13,7 +13,7 @@ router.get("/login", (req,res) => {
 //auth log out
 router.get("/logout", (req,res) => {
   req.logout();
-  res.redirect("/");
+  res.redirect("/home");
 });
 
 router.post('/check',

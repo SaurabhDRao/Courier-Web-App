@@ -8,7 +8,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  con.query("select * from admin where id=" + id, function (err, rows){
+  con.query("select * from empdetails where id=" + id, function (err, rows){
     done(err, rows[0]);
   });
 });
@@ -18,7 +18,7 @@ passport.use("loginCheck", new LocalStrategy(
     const usr = username;
     const psw = password;
     console.log(usr, psw);
-    var sql = "SELECT * FROM admin where username=" + mysql.escape(usr) + " and password=" + mysql.escape(psw);
+    var sql = "SELECT * FROM empdetails where username=" + mysql.escape(usr) + " and password=" + mysql.escape(psw);
       con.query(sql, function (err, result, fields) {
         if (err){
           return done(err);

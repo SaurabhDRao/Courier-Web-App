@@ -15,11 +15,11 @@
         <% include partials/navbar.ejs %>
     </header>
 
-    <div class="container add-container z-depth-4">
+    <div class="container add-container">
         <h1>Enter Courier Details</h1>
         <form action="/profile/addCourier" method = "POST"  class="col s12">
             <div class="row">
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field col s12 m6 l6">
                     <select name = "type">
                       <option value="" disabled selected>Choose your option</option>
                       <option value="speed">Speed Post</option>
@@ -28,15 +28,15 @@
                     <label>Type of courier</label>
                 </div>
               
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field col s12 m6 l6">
                     <input id="srcname" name = "srcname" type="text" class="validate">
                     <label for="srcname">SENDER NAME</label>
                 </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field col s12 m6 l6">
                     <input id="srcphone" name = "srcphone" type="tel" class="validate">
                     <label for="srcphone">SENDER MOBILE</label>
                 </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field col s12 m6 l6">
                     <input id="srcemail" name = "srcemail" type="text" class="validate">
                     <label for="srcemail">SENDER EMAIL</label>
                 </div>
@@ -44,35 +44,35 @@
                     <input id="srcaddress" name = "srcaddress" type="text" class="validate">
                     <label for="srcaddress">SOURCE ADDRESS</label>
                 </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field col s12 m6 l6">
                     <input id="srcpin" name = "srcpin" type="text" class="validate">
                     <label for="srcpin">SOURCE PIN</label>
                 </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field col s12 m6 l6">
                     <input id="destname" name = "destname" type="text" class="validate">
                     <label for="destname">RECEIVER NAME</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="destphone" name = "destphone" type="text" class="validate">
-                    <label for="destphone">RECEIVER MOBILE</label>
                 </div>
                 <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
                     <input id="destaddress" name = "destaddress" type="text" class="validate">
                     <label for="destaddress">DESTINATION ADDRESS</label>
                 </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field col s12 m6 l6">
                     <input id="destpin" name = "destpin" type="text" class="validate">
                     <label for="destpin">DESTINATION  PIN</label>
                 </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field col s12 m6 l6">
+                    <input id="destphone" name = "destphone" type="text" class="validate">
+                    <label for="destphone">RECEIVER MOBILE</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
                     <input id="weight" name = "weight" type="text" class="validate">
                     <label for="weigt">WEIGHT (Unit: Kg)</ltabel>
                 </div>
-                  <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                  <div class="input-field col s12 m6 l6">
                     <input id="size" name = "size" type="text" class="validate">
-                    <label for="size">SIZE (Units: meter, Format: widthXheight, Ex: 500X400)</label>
+                    <label for="size">SIZE (Units: meter, Format: w*h)</label>
                 </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                <div class="input-field offset-l3 offset-m3 col s12 m6 l6">
                     <select name = "payment">
                       <option value="" disabled selected>Choose your option</option>
                       <option value="cash">CASH</option>

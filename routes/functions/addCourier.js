@@ -45,7 +45,8 @@ module.exports = (req, res) => {
             + ", " + destpin
             + ", " + mysql.escape(weight)
             + ", " + mysql.escape(size)
-            + ", " + mysql.escape(qrcode)
+            + ", " + mysql.escape(qrcode),
+            + ", " + req.user
             + ");";
             con.query(q, (err, row, fields) => {
                 if(err) throw err;

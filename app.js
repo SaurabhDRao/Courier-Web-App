@@ -31,6 +31,10 @@ app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 
 app.get("/", (req,res) => {
+  res.render("splash");
+});
+
+app.get("/home", (Req, res) => {
   res.render("home");
 });
 

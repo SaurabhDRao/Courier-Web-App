@@ -1,10 +1,9 @@
 -- create database courier;
 use courier;
 
--- create table admin (
---     id int primary key,
---     username varchar(50) collate latin1_general_cs,
---     password varchar(50) collate latin1_general_cs
+-- create table branch(
+--     branchid int primary key,
+--     location varchar(50)
 -- );
 
 -- create table empdetails(
@@ -12,13 +11,15 @@ use courier;
 --     name varchar(50),
 --     username varchar(6) primary key collate latin1_general_cs,
 --     post varchar(50),
---     mobile int,
+--     mobile bigint,
 --     address varchar(500),
 --     email varchar(50),
---     password varchar(50) collate latin1_general_cs
+--     password varchar(50) collate latin1_general_cs,
+--     branchid int
 -- );
 
--- insert into admin values (1, "admin", "iamadmin");
+-- insert into branch values(1, "Karkala"), (2, "Mangalore");
+-- insert into empdetails values (1, "admin", "admin", "admin", 1234567890, "whatever", "admin@admin.com", "iamadmin", 1);
 
 -- collate latin1_general_cs
 
@@ -38,5 +39,6 @@ use courier;
 --     destpin int,
 --     weight varchar(20),
 --     size varchar(20),
---     qrcode varchar(1500)
+--     qrcode varchar(1500),
+--     currentlocation varchar(200)
 -- );
