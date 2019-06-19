@@ -25,10 +25,16 @@ module.exports = (req, res) => {
         else 
             id = result[0].id + 1 + "";
         id_ = id;
-        for(let i = id_.length;i < 5; i++){
+        for(let i = id_.length;i < 4; i++){
             id_ = "0" + id_;
         }
-        let trackId = "LTK" +  id_;
+        let currentDate = new Date();
+        let date = currentDate.getDate();
+        date = (date.length === 1) ? ("0" + date) : date;
+        let month = "" + currentDate.getMonth();
+        month = (month.length === 1) ? ("0" + month) : month;
+        let trackId = date + month + currentDate.getFullYear() + id;
+
         QRCode.toDataURL(trackId, function (err, qrcode) {
             q = "insert into couriers values (" + id
             + ", " + mysql.escape(trackId)
@@ -45,11 +51,12 @@ module.exports = (req, res) => {
             + ", " + destpin
             + ", " + mysql.escape(weight)
             + ", " + mysql.escape(size)
-            + ", " + mysql.escape(qrcode),
-            + ", " + req.user
+            + ", " + mysql.escape(qrcode)
+            + ", " + req.user.branchid
             + ");";
+            console.log(q);
             con.query(q, (err, row, fields) => {
-                if(err) throw err;
+                if(err) res.send(err);
                 res.redirect("/profile/addCourier");
             });
         });

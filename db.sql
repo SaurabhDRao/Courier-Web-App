@@ -40,5 +40,5 @@ use courier;
 --     weight varchar(20),
 --     size varchar(20),
 --     qrcode varchar(1500),
---     currentlocation varchar(200)
+--     branchid int
 -- );

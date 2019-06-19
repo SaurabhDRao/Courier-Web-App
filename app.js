@@ -7,6 +7,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 const profileRoutes = require('./routes/profile-route');
+const errorRoutes = require('./routes/error-route');
 const path = require("path");
 
 const app = express();
@@ -29,6 +30,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
+app.use("/error", errorRoutes);
 
 app.get("/", (req,res) => {
   res.render("splash");
