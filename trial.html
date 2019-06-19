@@ -1,50 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employees</title>
-    <link rel="stylesheet" href="./public/materialize/css/materialize.min.css">
-    <link href="./public/fontawesome-free-5.9.0-web/css/all.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/static/css/styles.css"> -->
-</head>
-<body>
-    
-    <header>
-        <nav class="nav-wrapper indigo">
-            <div class="container">
-                <a href="#" class="brand-logo hide-on-small-only">Courier</a>
-                <a href="#" class="brand-logo hide-on-med-and-up">MENU</a>
-                <a href="" class="sidenav-trigger" data-target="mobile-menu">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="/profile/status">Employees</a></li>
-                    <li><a href="/profile/leave">Add Courier</a></li>
-                    <li><a href="/profile/status">Update</a></li>
-                    <li><a href="/profile">Track</a></li>
-                    <li><a href="/auth/logout">Logout</a></li>
-                </ul>
-                <ul class="sidenav grey lighten-2" id="mobile-menu">
-                    <li><a href="/profile/leave">Add Courier</a></li>
-                    <li><a href="/profile/status">Update</a></li>
-                    <li><a href="/profile">Track</a></li>
-                    <li><a href="/auth/logout">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container">
-        
-    </div>
-
-    <script src="./public/jquery.js"></script>
-    <script src="./public/materialize/js/materialize.min.js"></script>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
     <script>
-        $(".sidenav").sidenav();
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 13.2151, lng: 74.9962};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
     </script>
-
-</body>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUKisP2iKzdQucPniyWNyYTb4zzXvMKYE&callback=initMap">
+    </script>
+  </body>
 </html>
