@@ -6,6 +6,7 @@ const updateEmployee = require("./functions/updateEmployee");
 const deleteEmployee = require("./functions/deleteEmployee");
 const addCourier = require("./functions/addCourier");
 const contact = require("./functions/contact");
+const updateCourier = require("./functions/updateCourier");
 
 const authCheck = (req,res,next) => {
   if(!req.user){
@@ -40,6 +41,8 @@ router.get("/addCourier", authCheck, (req, res) => { res.render("addCourier"); }
 
 router.post("/addCourier", authCheck, (req, res) => { addCourier(req, res); });
 
-router.post("/contact", (req, res) => { contact(req, res); })
+router.post("/contact", (req, res) => { contact(req, res); });
+
+router.get("/updateCourier", authCheck, (req, res) => { updateCourier(req, res); });
 
 module.exports = router;
