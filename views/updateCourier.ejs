@@ -25,10 +25,19 @@
             text-align: center;
             border-radius: 50px;
             margin-top: 25px;
+            padding-bottom: 30px;
         }
 
         video {
             margin-top: 10px;
+        }
+
+        .row {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            margin-top: 0;
         }
 
         @media (max-width: 480px) {
@@ -51,13 +60,12 @@
             <form class="col s12">
                 <div class="row">
                 <div class="input-field col offset-m4 s12 m4">
-                    <input id="trackId" name = "trackId" type="text" class="validate">
-                    <label for="trackId">Track Id</label>
+                    <input id="trackId" name = "trackId" type="text" class="validate" placeholder="Package ID">
                 </div>
                 </div>
             </form>
         </div>
-        <h2 id = "msg"></h2>
+        <h4 id = "msg"></h4>
     </div>
 
     <script src="/static/jquery.js"></script>
@@ -78,11 +86,19 @@
                 mirror: false
             }
         );
-        let flag = 0;
+        const encodeForm = (data) => {
+            return Object.keys(data)
+                .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+                .join('&');
+        }
+        let tid = "";
         scanner.addListener('scan', function(content) {
             document.getElementById("trackId").value = content;
-            if(flag === 0){
-                axios.post("/profile/update", { trackId: content })
+            if(tid !== content){
+                tid = content;
+                let trackIdData = { trackId: content };
+                console.log(trackIdData);
+                axios.post("/profile/update", encodeForm(trackIdData), {headers: {'Accept': 'application/json'}})
                 .then((res) => {
                     document.getElementById("msg").textContent = res.data;
                     console.log(res);
