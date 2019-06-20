@@ -16,7 +16,12 @@
 
         #create_pdf:hover {
             opacity: 0.8;
-        }        
+        }      
+        
+        h4 {
+            color: #0288D1;
+            line-height: 2;
+        }
     </style>
 
 </head>
@@ -28,71 +33,20 @@
     </header>
 
     <div class="container add-container">
-        <h1>Enter Courier Details</h1>
+        <h4>Courier Details of <%= trackId %></h4>
         <form action="/profile/addCourier" method = "POST"  class="col s12 form">
-            <img src="<%= qrcode %>" alt="">
+            
             <div class="row">
-                <div class="input-field col s12 m6 l6">
-                    <select value = "<%= courier.type %>" name = "type">
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="speed">Speed Post</option>
-                      <option value="normal">Normal</option>
-                    </select>
-                    <label>Type of courier</label>
+                <div class="col s12 l8" style = "text-align: left;">
+                    <h5>Destination Address</h5>
+                    <h6><%= courier.destname %></h6>
+                    <p>mobile: <%= courier.destphone %></p>
+                    <p><%= courier.destaddress %></p>
+                    <p><%= courier.destpin %></p>
                 </div>
-              
-                <div class="input-field col s12 m6 l6">
-                    <input id="srcname" value = "<%= courier.srcname %>" name = "srcname" type="text" class="validate">
-                    <label for="srcname">SENDER NAME</label>
+                <div class="col s12 l4">
+                    <img src="<%= qrcode %>" alt="">
                 </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="srcphone" value = "<%= courier.srcphone %>" name = "srcphone" type="tel" class="validate">
-                    <label for="srcphone">SENDER MOBILE</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="srcemail" value = "<%= courier.srcemail %>" name = "srcemail" type="text" class="validate">
-                    <label for="srcemail">SENDER EMAIL</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="srcaddress" value = "<%= courier.srcaddress %>" name = "srcaddress" type="text" class="validate">
-                    <label for="srcaddress">SOURCE ADDRESS</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="srcpin" value = "<%= courier.srcpin %>" name = "srcpin" type="text" class="validate">
-                    <label for="srcpin">SOURCE PIN</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="destname" value = "<%= courier.destname %>" name = "destname" type="text" class="validate">
-                    <label for="destname">RECEIVER NAME</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="destaddress" value = "<%= courier.destaddress %>" name = "destaddress" type="text" class="validate">
-                    <label for="destaddress">DESTINATION ADDRESS</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="destpin" value = "<%= courier.destpin %>" name = "destpin" type="text" class="validate">
-                    <label for="destpin">DESTINATION  PIN</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="destphone" value = "<%= courier.destphone %>" name = "destphone" type="text" class="validate">
-                    <label for="destphone">RECEIVER MOBILE</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="weight" value = "<%= courier.weight %>" name = "weight" type="text" class="validate">
-                    <label for="weigt">WEIGHT (Unit: Kg)</ltabel>
-                </div>
-                  <div class="input-field col s12 m6 l6">
-                    <input id="size" value = "<%= courier.size %>" name = "size" type="text" class="validate">
-                    <label for="size">SIZE (Units: meter, Format: w*h)</label>
-                </div>
-                <div class="input-field offset-l3 offset-m3 col s12 m6 l6">
-                    <select value = "<%= courier.payment %>" name = "payment">
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="cash">CASH</option>
-                      <option value="card">CARD/NET BANKING</option>
-                   </select>
-                   <label>PAYMENT DETAIL</label>
-               </div>
             </div>
         </form>
         <button class = "btn waves-effect waves-light lighten-1" id="create_pdf" value="Generate PDF">Generate PDF</button>
@@ -131,7 +85,7 @@
                          unit: 'px',  
                          format: 'a4'  
                      });  
-                    doc.addImage(img, 'JPEG', 20, 20);  
+                    doc.addImage(img, 'JPEG', 40, 40);  
                     doc.save('tiral.pdf');  
                     form.width(cache_width);  
                 });  
@@ -194,7 +148,7 @@
                     $message = $('<div ></div>').html(msg).css({  
                         margin: 0,  
                         padding: 10,  
-                        background: "#000",  
+                        background: "#0922c4",  
                         opacity: 0.7,  
                         position: "fixed",  
                         top: 10,  
