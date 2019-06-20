@@ -85,7 +85,7 @@
                          format: 'a4'  
                      });  
                     doc.addImage(img, 'JPEG', 40, 40);  
-                    doc.save('tiral.pdf');  
+                    doc.save("<%= trackId %>" +  '.pdf');  
                     form.width(cache_width);  
                 });  
             }  
