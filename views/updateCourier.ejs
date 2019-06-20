@@ -57,6 +57,7 @@
                 </div>
             </form>
         </div>
+        <h2 id = "msg"></h2>
     </div>
 
     <script src="/static/jquery.js"></script>
@@ -77,9 +78,17 @@
                 mirror: false
             }
         );
+        let flag = 0;
         scanner.addListener('scan', function(content) {
             document.getElementById("trackId").value = content;
-            axios.post("/profile/update", { trackId: content }).then((res) => (console.log(res)));
+            if(flag === 0){
+                axios.post("/profile/update", { trackId: content })
+                .then((res) => {
+                    document.getElementById("msg").textContent = res.data;
+                    console.log(res);
+                });
+            }
+            flag = 1;
         });
         Instascan.Camera.getCameras().then(cameras => 
         {

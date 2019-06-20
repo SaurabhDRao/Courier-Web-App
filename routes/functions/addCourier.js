@@ -19,6 +19,7 @@ module.exports = (req, res) => {
     let size = req.body.size;
     let q = "select max(id) as id from couriers";
     con.query(q, (err, result) => {
+        q = "select latitude, longitude from branch where branchid = " + req.user.branchid;
         let id;
         if(result[0].id === null)
             id = "1";
@@ -35,29 +36,33 @@ module.exports = (req, res) => {
         month = (month.length === 1) ? ("0" + month) : month;
         let trackId = date + month + currentDate.getFullYear() + id;
 
-        QRCode.toDataURL(trackId, function (err, qrcode) {
-            q = "insert into couriers values (" + id
-            + ", " + mysql.escape(trackId)
-            + ", " + mysql.escape(type)
-            + ", " + mysql.escape(sender)
-            + ", " + mysql.escape(receiver)
-            + ", " + mysql.escape(srcphone)
-            + ", " + mysql.escape(destphone)
-            + ", " + mysql.escape(srcemail)
-            + ", " + mysql.escape(payment)
-            + ", " + mysql.escape(srcaddress)
-            + ", " + srcpin
-            + ", " + mysql.escape(destaddress)
-            + ", " + destpin
-            + ", " + mysql.escape(weight)
-            + ", " + mysql.escape(size)
-            + ", " + mysql.escape(qrcode)
-            + ", " + req.user.branchid
-            + ");";
-            console.log(q);
-            con.query(q, (err, row, fields) => {
-                if(err) res.send(err);
-                res.render("pdfGen", { courier: req.body, qrcode: qrcode, trackId: trackId });
+        con.query(q, (err, result1) => {
+            QRCode.toDataURL(trackId, function (err, qrcode) {
+                q = "insert into couriers values (" + id
+                + ", " + mysql.escape(trackId)
+                + ", " + mysql.escape(type)
+                + ", " + mysql.escape(sender)
+                + ", " + mysql.escape(receiver)
+                + ", " + mysql.escape(srcphone)
+                + ", " + mysql.escape(destphone)
+                + ", " + mysql.escape(srcemail)
+                + ", " + mysql.escape(payment)
+                + ", " + mysql.escape(srcaddress)
+                + ", " + srcpin
+                + ", " + mysql.escape(destaddress)
+                + ", " + destpin
+                + ", " + mysql.escape(weight)
+                + ", " + mysql.escape(size)
+                + ", " + mysql.escape(qrcode)
+                + ", " + req.user.branchid
+                + ", " + mysql.escape(result1[0].latitude)
+                + ", " + mysql.escape(result1[0].longitude)
+                + ");";
+                console.log(q);
+                con.query(q, (err, row, fields) => {
+                    if(err) res.send(err);
+                    res.render("pdfGen", { courier: req.body, qrcode: qrcode, trackId: trackId });
+                });
             });
         });
     });
