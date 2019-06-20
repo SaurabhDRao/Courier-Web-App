@@ -57,7 +57,7 @@ module.exports = (req, res) => {
             console.log(q);
             con.query(q, (err, row, fields) => {
                 if(err) res.send(err);
-                res.redirect("/profile/addCourier");
+                res.render("pdfGen", { courier: req.body, qrcode: qrcode });
             });
         });
     });

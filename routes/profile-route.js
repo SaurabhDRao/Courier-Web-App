@@ -45,6 +45,6 @@ router.post("/contact", (req, res) => { contact(req, res); });
 
 router.get("/updateCourier", authCheck, (req, res) => { res.render("updateCourier"); });
 
-router.post("/update", (req, res) => { update(req, res); })
+router.post("/update", (req, res) => { update(req, res); });
 
 module.exports = router;

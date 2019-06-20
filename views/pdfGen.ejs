@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/static/materialize/css/materialize.min.css">
+    <link href="/static/fontawesome-free-5.9.0-web/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/add-styles.css">
+
+    <style>
+        #create_pdf {
+            background: #0288D1;
+        }
+
+        #create_pdf:hover {
+            opacity: 0.8;
+        }        
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <!-- include navbar -->
+        <% include partials/navbar.ejs %>
+    </header>
+
+    <div class="container add-container">
+        <h1>Enter Courier Details</h1>
+        <form action="/profile/addCourier" method = "POST"  class="col s12 form">
+            <img src="<%= qrcode %>" alt="">
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <select value = "<%= courier.type %>" name = "type">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="speed">Speed Post</option>
+                      <option value="normal">Normal</option>
+                    </select>
+                    <label>Type of courier</label>
+                </div>
+              
+                <div class="input-field col s12 m6 l6">
+                    <input id="srcname" value = "<%= courier.srcname %>" name = "srcname" type="text" class="validate">
+                    <label for="srcname">SENDER NAME</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="srcphone" value = "<%= courier.srcphone %>" name = "srcphone" type="tel" class="validate">
+                    <label for="srcphone">SENDER MOBILE</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="srcemail" value = "<%= courier.srcemail %>" name = "srcemail" type="text" class="validate">
+                    <label for="srcemail">SENDER EMAIL</label>
+                </div>
+                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                    <input id="srcaddress" value = "<%= courier.srcaddress %>" name = "srcaddress" type="text" class="validate">
+                    <label for="srcaddress">SOURCE ADDRESS</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="srcpin" value = "<%= courier.srcpin %>" name = "srcpin" type="text" class="validate">
+                    <label for="srcpin">SOURCE PIN</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="destname" value = "<%= courier.destname %>" name = "destname" type="text" class="validate">
+                    <label for="destname">RECEIVER NAME</label>
+                </div>
+                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
+                    <input id="destaddress" value = "<%= courier.destaddress %>" name = "destaddress" type="text" class="validate">
+                    <label for="destaddress">DESTINATION ADDRESS</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="destpin" value = "<%= courier.destpin %>" name = "destpin" type="text" class="validate">
+                    <label for="destpin">DESTINATION  PIN</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="destphone" value = "<%= courier.destphone %>" name = "destphone" type="text" class="validate">
+                    <label for="destphone">RECEIVER MOBILE</label>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="weight" value = "<%= courier.weight %>" name = "weight" type="text" class="validate">
+                    <label for="weigt">WEIGHT (Unit: Kg)</ltabel>
+                </div>
+                  <div class="input-field col s12 m6 l6">
+                    <input id="size" value = "<%= courier.size %>" name = "size" type="text" class="validate">
+                    <label for="size">SIZE (Units: meter, Format: w*h)</label>
+                </div>
+                <div class="input-field offset-l3 offset-m3 col s12 m6 l6">
+                    <select value = "<%= courier.payment %>" name = "payment">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="cash">CASH</option>
+                      <option value="card">CARD/NET BANKING</option>
+                   </select>
+                   <label>PAYMENT DETAIL</label>
+               </div>
+            </div>
+        </form>
+        <button class = "btn waves-effect waves-light lighten-1" id="create_pdf" value="Generate PDF">Generate PDF</button>
+    </div>
+
+    <script src="/static/jquery.js"></script>
+    <script src="/static/materialize/js/materialize.min.js"></script>
+    <script src="/static/js/jspdf.min.js"></script>  
+    <script >
+        
+    $(document).ready(function(){
+        $('select').formSelect();
+        $('.sidenav').sidenav();
+    });
+        
+
+    </script>
+
+    <script>  
+        (function () {  
+            var  
+             form = $('.form'),  
+             cache_width = form.width(),  
+             a4 = [595.28, 841.89]; // for a4 size paper width and height  
+      
+            $('#create_pdf').on('click', function () {  
+                $('body').scrollTop(0);  
+                createPDF();  
+            });  
+            //create pdf  
+            function createPDF() {  
+                getCanvas().then(function (canvas) {  
+                    var  
+                     img = canvas.toDataURL("image/png"),  
+                     doc = new jsPDF({  
+                         unit: 'px',  
+                         format: 'a4'  
+                     });  
+                    doc.addImage(img, 'JPEG', 20, 20);  
+                    doc.save('tiral.pdf');  
+                    form.width(cache_width);  
+                });  
+            }  
+      
+            // create canvas object  
+            function getCanvas() {  
+                form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');  
+                return html2canvas(form, {  
+                    imageTimeout: 2000,  
+                    removeContainer: true  
+                });  
+            }  
+      
+        }());  
+    </script>  
+    <script>  
+        /* 
+     * jQuery helper plugin for examples and tests 
+     */  
+        (function ($) {  
+            $.fn.html2canvas = function (options) {  
+                var date = new Date(),  
+                $message = null,  
+                timeoutTimer = false,  
+                timer = date.getTime();  
+                html2canvas.logging = options && options.logging;  
+                html2canvas.Preload(this[0], $.extend({  
+                    complete: function (images) {  
+                        var queue = html2canvas.Parse(this[0], images, options),  
+                        $canvas = $(html2canvas.Renderer(queue, options)),  
+                        finishTime = new Date();  
+      
+                        $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);  
+                        $canvas.siblings().toggle();  
+      
+                        $(window).click(function () {  
+                            if (!$canvas.is(':visible')) {  
+                                $canvas.toggle().siblings().toggle();  
+                                throwMessage("Canvas Render visible");  
+                            } else {  
+                                $canvas.siblings().toggle();  
+                                $canvas.toggle();  
+                                throwMessage("Canvas Render hidden");  
+                            }  
+                        });  
+                        throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);  
+                    }  
+                }, options));  
+      
+                function throwMessage(msg, duration) {  
+                    window.clearTimeout(timeoutTimer);  
+                    timeoutTimer = window.setTimeout(function () {  
+                        $message.fadeOut(function () {  
+                            $message.remove();  
+                        });  
+                    }, duration || 2000);  
+                    if ($message)  
+                        $message.remove();  
+                    $message = $('<div ></div>').html(msg).css({  
+                        margin: 0,  
+                        padding: 10,  
+                        background: "#000",  
+                        opacity: 0.7,  
+                        position: "fixed",  
+                        top: 10,  
+                        right: 10,  
+                        fontFamily: 'Tahoma',  
+                        color: '#fff',  
+                        fontSize: 12,  
+                        borderRadius: 12,  
+                        width: 'auto',  
+                        height: 'auto',  
+                        textAlign: 'center',  
+                        textDecoration: 'none'  
+                    }).hide().fadeIn().appendTo('body');  
+                }  
+            };  
+        })(jQuery);  
+      
+    </script>  
+
+</body>
+</html>
