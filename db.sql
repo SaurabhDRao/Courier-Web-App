@@ -6,7 +6,7 @@ create table branch(
     location varchar(50),
     latitude varchar(50),
     longitude varchar(50)
-);
+-- );
 
 -- create table empdetails(
 --     id int,
@@ -20,7 +20,7 @@ create table branch(
 --     branchid int
 -- );
 
--- insert into branch values(1, "Karkala"), (2, "Mangalore");
+-- insert into branch values(1, "Karkala", "13.2151", "74.9962"), (2, "Mangalore", "12.9141", "74.8560");
 -- insert into empdetails values (1, "admin", "admin", "admin", 1234567890, "whatever", "admin@admin.com", "iamadmin", 1);
 
 -- collate latin1_general_cs
