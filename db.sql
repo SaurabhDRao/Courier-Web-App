@@ -1,10 +1,12 @@
 -- create database courier;
 use courier;
 
--- create table branch(
---     branchid int primary key,
---     location varchar(50)
--- );
+create table branch(
+    branchid int primary key,
+    location varchar(50),
+    latitude varchar(50),
+    longitude varchar(50)
+);
 
 -- create table empdetails(
 --     id int,
@@ -40,5 +42,7 @@ use courier;
 --     weight varchar(20),
 --     size varchar(20),
 --     qrcode varchar(1500),
---     branchid int
+--     branchid int,
+--     latitude varchar(50),
+--     longitude varchar(50)
 -- );

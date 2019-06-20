@@ -26,4 +26,6 @@ router.get("/failedLogin", (req, res) => {
   res.render("login", { msg: "Incorrect username or password!" })
 });
 
+router.get("/getTrackId", (req, res) => { res.render("getTrackId"); });
+
 module.exports = router;

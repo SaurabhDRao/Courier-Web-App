@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="number" id="long">
+<input type="number" id="lat">
+<input type="submit" onclick="load()" value="Locate">
+<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?api=1&q=&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" crossorigin="anonymous" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+
+<script>
+	var long = document.getElementById('long');
+	var lat = document.getElementById('lat');
+	var map = document.getElementById('gmap_canvas');
+
+	var main_query="https://maps.google.com/maps?api=1&q=";
+	var ending = "&t=&z=13&ie=UTF8&iwloc=&output=embed";
+	
+	function load(){
+		var query = main_query + lat.value + "," + long.value + ending;
+		map.src = query;
+	}
+	
+</script>
+</body>
+</html> 
