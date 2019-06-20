@@ -61,6 +61,7 @@
 
     <script src="/static/jquery.js"></script>
     <script src="/static/materialize/js/materialize.min.js"></script>
+    <script src="/static/js/axios.min.js"></script>
 
     <script>
         $(document).ready(function(){
@@ -69,13 +70,16 @@
     </script>
 
     <script>
+        axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
         let scanner = new Instascan.Scanner(
             {
-                video: document.getElementById('preview')
+                video: document.getElementById('preview'),
+                mirror: false
             }
         );
         scanner.addListener('scan', function(content) {
             document.getElementById("trackId").value = content;
+            axios.post("/profile/update", { trackId: content }).then((res) => (console.log(res)));
         });
         Instascan.Camera.getCameras().then(cameras => 
         {
