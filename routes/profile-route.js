@@ -17,9 +17,13 @@ const authCheck = (req,res,next) => {
 };
 
 router.get("/", authCheck, (req, res) => {
+  res.render("profile", { "user": req.user });
+});
+
+router.get("/employees", authCheck, (req, res) => {
   let q = "select * from empdetails";
   con.query(q, (err, result) => {
-      res.render("users", { "users": result });
+      res.render("users", { "users": result, user: req.user });
   });
 });
 
@@ -31,19 +35,19 @@ router.get("/editUserDetails/:id", authCheck, (req, res) => {
   let id = req.params.id;
   let q = "select * from empdetails where id = " + id;
   con.query(q, (err, result) => {
-      res.render("profile", { "user": result[0] });
+      res.render("user", { "user": result[0] });
   });
 });
 
 router.post("/updateUser/:id", authCheck, (req, res) => { updateEmployee(req, res); });
 
-router.get("/addCourier", authCheck, (req, res) => { res.render("addCourier"); });
+router.get("/addCourier", authCheck, (req, res) => { res.render("addCourier", { "user": req.user }); });
 
 router.post("/addCourier", authCheck, (req, res) => { addCourier(req, res); });
 
 router.post("/contact", (req, res) => { contact(req, res); });
 
-router.get("/updateCourier", authCheck, (req, res) => { res.render("updateCourier"); });
+router.get("/updateCourier", authCheck, (req, res) => { res.render("updateCourier", { "user": req.user }); });
 
 router.post("/update", authCheck, (req, res) => { updateCourier(req, res); });
 

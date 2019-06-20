@@ -51,7 +51,13 @@
 
     <header>
         <!-- include navbar -->
-        <% include partials/navbar.ejs %>
+        <% if(user.post === "Employee") { %>
+            <% include partials/navbarForEmployee.ejs %>
+        <% } else if(user.post === "Shipper") { %>
+            <% include partials/navbarForShipper.ejs %>    
+        <% } else { %>
+            <% include partials/navbarForManagerAndAdmin.ejs %>    
+        <% } %>
     </header>
 
     <div class = "container" id = "track-container">

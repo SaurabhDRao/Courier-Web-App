@@ -61,7 +61,7 @@ module.exports = (req, res) => {
                 console.log(q);
                 con.query(q, (err, row, fields) => {
                     if(err) res.send(err);
-                    res.render("pdfGen", { courier: req.body, qrcode: qrcode, trackId: trackId });
+                    res.render("pdfGen", { courier: req.body, qrcode: qrcode, trackId: trackId, "user": req.user });
                 });
             });
         });

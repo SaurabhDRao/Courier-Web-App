@@ -20,10 +20,10 @@ use courier;
 --     branchid int
 -- );
 
--- insert into branch values(1, "Karkala", "13.2151", "74.9962"), (2, "Mangalore", "12.9141", "74.8560");
--- insert into empdetails values (1, "admin", "admin", "admin", 1234567890, "whatever", "admin@admin.com", "iamadmin", 1);
--- insert into branch values(3, "Udupi", "13.3409", "74.7421"), (4, "Bangalore", "12.9716", "77.5946");
+-- insert into branch values(1, "Karkala", "13.2151", "74.9962"), (2, "Mangalore", "12.9141", "74.8560"), 
+--     (3, "Udupi", "13.3409", "74.7421"), (4, "Bangalore", "12.9716", "77.5946");
 -- insert into empdetails values 
+--     (1, "admin", "admin", "admin", 1234567890, "whatever", "admin@admin.com", "iamadmin", 1),
 --     (2, "Rahul", "19L002", "Manager", 9988776655, "9255 170th Avenue Northeast Redmond, WA 98052 USA", "rahul@gmail.com", "rahul", 1),
 --     (3, "Reevan", "19L003", "Employee", 9988665577, "29628 Northeast 1st Street Pendleton, OR 97801 USA", "reevan@gmail.com", "reevan", 1),
 --     (4, "Yashas", "19L004", "Shipper", 9898767643, "11373 Sage Street Silver Lake, KS 66539 USA", "yashas@gmail.com", "yashas", 2),
