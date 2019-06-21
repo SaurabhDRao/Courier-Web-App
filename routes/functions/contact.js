@@ -26,7 +26,4 @@ module.exports = (req, res) => {
             res.send("Mesage sent!");
         });
     });
-    // let emailBody = "From: " + name + ", " + mobile + "\n" + msg;
-    // let subject = "Support"
-    // sendMail(email, subject, emailBody);
 }

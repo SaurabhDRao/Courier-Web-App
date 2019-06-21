@@ -2,6 +2,7 @@ var mysql = require('mysql');
 const con = require('../../db');
 const uniqid = require("uniqid");
 const QRCode = require('qrcode');
+const sendMail = require("./sendMail");
 
 module.exports = (req, res) => {
     let type = req.body.type;
@@ -65,5 +66,9 @@ module.exports = (req, res) => {
                 });
             });
         });
+
+        let emailBody = "Your order with tracking id " + trackId + " is being processed!\nYou will be receiving email updates regularly."
+        let subject = "Your courier"
+        sendMail(srcemail, subject, emailBody);
     });
 }

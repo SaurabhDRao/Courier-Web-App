@@ -71,7 +71,6 @@
                 </div>
             </form>
         </div>
-        <h4 id = "msg" class = "indigo-text"></h4>
     </div>
 
     <script src="/static/jquery.js"></script>
@@ -106,7 +105,7 @@
                 console.log(trackIdData);
                 axios.post("/profile/update", encodeForm(trackIdData), {headers: {'Accept': 'application/json'}})
                 .then((res) => {
-                    document.getElementById("msg").textContent = res.data;
+                    M.toast({html: res.data});
                     console.log(res);
                 });
             }
