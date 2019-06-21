@@ -55,6 +55,7 @@ use courier;
 -- );
 
 -- create table support (
+--     id int primary key,
 --     name varchar(50),
 --     mobile bigint,
 --     email varchar(100),
