@@ -1,22 +1,23 @@
 var nodemailer = require('nodemailer');
 const keys = require("../../config/keys");
 
-module.exports = (name, email, msg) => {
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: keys.gmail.username,
-          pass: keys.gmail.password
-        }
-    });
-      
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: keys.gmail.username,
+      pass: keys.gmail.password
+    }
+});
+  
+
+module.exports = (email, subject, msg) => {
     var mailOptions = {
         from: keys.gmail.username,
-        to: 'saurao2612@gmail.com',
-        subject: 'Sending Email using Node.js',
-        text: name + ", " + email + ", " + msg
+        to: email,
+        subject: subject,
+        text: msg
     };
-      
+    console.log(email, subject, msg);      
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
           console.log(error);

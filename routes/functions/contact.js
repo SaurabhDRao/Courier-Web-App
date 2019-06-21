@@ -1,5 +1,6 @@
 var mysql = require('mysql');
 const con = require('../../db');
+const sendMail = require("./sendMail");
 
 module.exports = (req, res) => {
     let name = req.body.name;
@@ -25,4 +26,7 @@ module.exports = (req, res) => {
             res.send("Mesage sent!");
         });
     });
+    // let emailBody = "From: " + name + ", " + mobile + "\n" + msg;
+    // let subject = "Support"
+    // sendMail(email, subject, emailBody);
 }

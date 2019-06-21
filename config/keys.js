@@ -7,7 +7,7 @@ module.exports = {
     password: "dragon391",
   },
   gmail: {
-    username: "lcourier3@gmail.com",
+    username: "lcouerier3@gmail.com",
     password: "I@madmin123"
   }
 };
