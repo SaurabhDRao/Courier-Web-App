@@ -55,15 +55,60 @@
             <!-- <button class = "btn waves-effect waves-light lighten-1" id = "saveBtn">Save</button>
             <a href="/profile/" class = "btn waves-effect waves-light red lighten-1">Back</a> -->
         </form>
+        <hr>
+        <button id = "toggleForm">Show form</button>
+            <div class = "row" id = "addNew">
+                <h4>Change password</h4>
+                <form class="col s12" id = "changePasswordForm">
+                    <div class="row">
+                        <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
+                            <input id="password" name = "password" value = "" type="password" class="validate" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
+                            <input id="confirmPassword" name = "confirmPassword" value = "" type="password" class="validate" required>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </div>
+                    </div>
+                    <button class = "btn waves-effect waves-light indigo">Submit</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 
     <script src="/static/jquery.js"></script>
     <script src="/static/materialize/js/materialize.min.js"></script>
+    <script src="/static/js/axios.min.js"></script>
+    <script src = "/static/js/main.js" ></script>
 
     <script >
-        
+        const encodeForm = (data) => {
+            return Object.keys(data)
+                .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+                .join('&');
+        }
         $(document).ready(function(){
             $('.sidenav').sidenav();
+            $("#changePasswordForm").on("submit", (e) => {
+                e.preventDefault();
+                let password = $("#password").val();
+                let confirmPassword = $("#confirmPassword").val();
+                if(password !== confirmPassword) {
+                    M.toast({html: "Passwords doesn't match!"});
+                } else {
+                    let passwordData = {
+                        password: password
+                    }
+                    console.log(passwordData);
+                    axios.post("/profile/changePassword", encodeForm(passwordData), {headers: {'Accept': 'application/json'}})
+                        .then((res) => {
+                            M.toast({html: res.data});
+                            $("#password").val("");
+                            $("#confirmPassword").val("");
+                        });
+                }
+            });
         });
             
     

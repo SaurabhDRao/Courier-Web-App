@@ -21,7 +21,7 @@ module.exports = (req, res) => {
                 let subject = "Your courier"
                 let email = result[0].srcemail;
                 sendMail(email, subject, emailBody);
-                res.send(trackId + " done!");
+                res.send(trackId + " updation done!");
             } else
                 res.send("Invalid Package ID!");
         });

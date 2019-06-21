@@ -6,6 +6,6 @@ module.exports = (req, res) => {
     let q = "delete from empdetails where id = " + id;
     con.query(q, (err, result) => {
         if(err) throw err;
-        res.redirect("/profile/");
+        res.redirect("/profile/employees");
     });
 }

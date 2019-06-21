@@ -16,6 +16,6 @@ module.exports = (req, res) => {
         + " where id = " + id;
     con.query(q, (err, row, fields) => {
         if(err) throw err;
-        res.redirect("/profile/");
+        res.redirect("/profile/employees");
     });
 }

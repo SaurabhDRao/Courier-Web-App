@@ -28,7 +28,7 @@ use courier;
 --     (3, "Reevan", "19L003", "Employee", 9988665577, "29628 Northeast 1st Street Pendleton, OR 97801 USA", "reevan@gmail.com", "reevan", 1),
 --     (4, "Yashas", "19L004", "Shipper", 9898767643, "11373 Sage Street Silver Lake, KS 66539 USA", "yashas@gmail.com", "yashas", 2),
 --     (5, "Sharath", "19L005", "Employee", 9797121234, "1263 Poplar Drive Xenia, IL 62899 USA", "sharath@gmail.com", "sharath", 3),
---     (6, "Sharath", "19L006", "Shipper", 8675432190, "2246 North Wilke Road Arlington Heights, IL 60004 USA", "rajath@gmail.com", "rajath", 4);
+--     (6, "Rajath", "19L006", "Shipper", 8675432190, "2246 North Wilke Road Arlington Heights, IL 60004 USA", "rajath@gmail.com", "rajath", 4);
 
 -- collate latin1_general_cs
 

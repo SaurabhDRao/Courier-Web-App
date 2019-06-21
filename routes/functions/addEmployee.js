@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 const con = require('../../db');
 const uniqid = require("uniqid");
+const sendMail = require("./sendMail");
 
 module.exports = (req, res) => {
     let name = req.body.name;
@@ -33,7 +34,14 @@ module.exports = (req, res) => {
         console.log(q);
         con.query(q, (err, rows, fields) => {
             if(err) throw err;
-            res.redirect("/profile/");
+            res.redirect("/profile/employees");
         });
+        let emailBody = "Welcome " + name 
+            + "!\nYou have joined L-Courier and have been assigned the post of " + post
+            + ".\nYour username is " + username
+            + ".\nYour password is " + password
+            + ".\nPlease be sure to change your password when you login next time."
+        let subject = "Welcome"
+        sendMail(email, subject, emailBody);
     });
 }
