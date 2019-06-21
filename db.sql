@@ -53,3 +53,10 @@ use courier;
 --     latitude varchar(50),
 --     longitude varchar(50)
 -- );
+
+-- create table support (
+--     name varchar(50),
+--     mobile bigint,
+--     email varchar(100),
+--     msg varchar(1000)
+-- );

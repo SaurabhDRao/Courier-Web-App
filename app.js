@@ -9,6 +9,7 @@ const keys = require('./config/keys');
 const profileRoutes = require('./routes/profile-route');
 const errorRoutes = require('./routes/error-route');
 const trackRoutes = require("./routes/track-route");
+const contactRoutes = require("./routes/contact-route");
 const path = require("path");
 
 const app = express();
@@ -32,6 +33,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes);
 app.use("/track", trackRoutes);
+app.use("/contact", contactRoutes);
 app.use("/error", errorRoutes);
 
 app.get("/", (req,res) => {
