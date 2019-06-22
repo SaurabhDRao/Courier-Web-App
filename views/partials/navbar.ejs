@@ -1,0 +1,9 @@
+<% if(!user) { %>
+    <% include navbarForUnauthorizedUsers.ejs %>
+<% } else if(user.post === "Employee") { %>
+    <% include navbarForEmployee.ejs %>
+<% } else if(user.post === "Shipper") { %>
+    <% include navbarForShipper.ejs %>    
+<% } else { %>
+    <% include navbarForManagerAndAdmin.ejs %>    
+<% } %>

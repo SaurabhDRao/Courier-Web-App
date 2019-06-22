@@ -16,7 +16,7 @@ router.post("/", (req, res) => { contact(req, res); });
 router.get("/support", authCheck, (req, res) => {
     let q = "select * from support";
     con.query(q, (err, result) => {
-        res.render("support", { users: result });
+        res.render("support", { users: result, user: req.user });
     });
 });
 

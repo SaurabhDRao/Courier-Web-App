@@ -40,8 +40,8 @@ app.get("/", (req,res) => {
   res.render("splash");
 });
 
-app.get("/home", (Req, res) => {
-  res.render("home");
+app.get("/home", (req, res) => {
+  res.render("home", { user: req.user });
 });
 
 app.listen(3000, () => {

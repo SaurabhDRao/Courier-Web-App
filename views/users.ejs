@@ -15,13 +15,7 @@
     
         <header>
             <!-- include navbar -->
-            <% if(user.post === "Employee") { %>
-                <% include partials/navbarForEmployee.ejs %>
-            <% } else if(user.post === "Shipper") { %>
-                <% include partials/navbarForShipper.ejs %>    
-            <% } else { %>
-                <% include partials/navbarForManagerAndAdmin.ejs %>    
-            <% } %>
+            <% include partials/navbar.ejs %>
         </header>
 
         <div class="container users-container z-depth-4">
