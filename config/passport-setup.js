@@ -29,7 +29,7 @@ passport.use("loginCheck", new LocalStrategy(
       }
       const validPassword = await bcrypt.compare(password, result[0].password);
       if(!validPassword) return done(null, false);
-        return done(null, result[0]);
+      return done(null, result[0]);
       });
   }
 ));

@@ -16,7 +16,7 @@ use courier;
 --     mobile bigint,
 --     address varchar(500),
 --     email varchar(50),
---     password varchar(50) collate latin1_general_cs,
+--     password varchar(100) collate latin1_general_cs,
 --     branchid int
 -- );
 
