@@ -55,11 +55,6 @@ h1 {
     cursor: pointer;
 }
 
-.profile-container {
-    width: 700px;
-    margin-top: 70px;
-}
-
 #saveBtn {
     margin-right: 20px;
 }

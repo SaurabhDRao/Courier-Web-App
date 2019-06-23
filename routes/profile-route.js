@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bcrypt = require("bcryptjs");
 var mysql = require('mysql');
 const con = require('../db');
 const addNewEmployee = require("./functions/addEmployee");  
@@ -26,7 +27,7 @@ router.get("/employees", authCheck, (req, res) => {
 	});
 });
 
-router.post("/addNewUser", authCheck, (req, res) => { addNewEmployee(req, res); });
+router.post("/addNewUser", authCheck, async (req, res) => { addNewEmployee(req, res); });
 
 router.get("/deleteUser/:id", authCheck, (req, res) => { deleteEmployee(req, res); });
 
@@ -48,9 +49,10 @@ router.get("/updateCourier", authCheck, (req, res) => { res.render("updateCourie
 
 router.post("/update", authCheck, (req, res) => { updateCourier(req, res); });
 
-router.post("/changePassword", authCheck, (req, res) => {
-	let password = req.body.password;
-	let q = "update empdetails set password = " +  mysql.escape(password) + " where id = " + req.user.id;
+router.post("/changePassword", authCheck, async (req, res) => {
+	const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+	let q = "update empdetails set password = " +  mysql.escape(hashedPassword) + " where id = " + req.user.id;
 	con.query(q, (err, row, fields) => {
 		if(err) throw err;
 		res.send("Password updated successfully!");

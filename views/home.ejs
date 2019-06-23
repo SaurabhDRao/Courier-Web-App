@@ -14,8 +14,8 @@
     }
 
     #about .card, #about .card-stacked {
-        padding-left: 20px;
         border-radius: 50px;
+        text-align: justify;
     }
 
     a {
@@ -41,7 +41,7 @@
    
      <div class="container" id="about">
         
-            <div class="card white">
+            <div class="card white z-depth-4">
              <div class="row">
                     <div class="col s12 m4 ">
                             <div class="card-image">
@@ -96,8 +96,9 @@
         </div>
     </div>
     <div class="container" id="contact">
-        
-            <div class="card white" style = "border-radius: 50px;">
+        <div class="card white z-depth-4" style = "border-radius: 50px;">
+            <br>
+                <center><h2 class = "blue-text darken-4">CONTACT US</h2></center>
              <div class="row">
                     <div class="col s12 m4 ">
                             
@@ -105,7 +106,7 @@
                                    <div class="row">
                                         <br>
                                         <center> <h5>  OFFICE ADDRESS</h5>
-                                        <p>    Vitvara Techologies <br>
+                                        <p>    L-Courier <br>
                                         #3-25/7, Vinayaka Udaya nagar<br>
                                          Kadri Hills, Mangaluru,<br> Karnataka 575004</p>
                                             </center>
@@ -123,7 +124,7 @@
                             
                                      <div class="row"><br>
                                             <center><h5> Canada Office address</h5>
-                                            Vitvara Techologies <br>
+                                            L-Courier <br>
                                              348, Lumsden avenue,<br>
                                             Toronto, M4C2L3, CANADA<br>
                                         </center>
@@ -131,37 +132,39 @@
                                     <div class="row">
                                                     <br>
                                                     <center><h5>Email</h5>
-                                             support@vitvara.com</center>
+                                             support@lcourier.com</center>
                                 
                                     </div>
                                
                    </div>
-                   <div class="col s12 m4 ">
+                   <div class="col s12 m5 ">
                                
                                     <div class="card-content blue-text">
 
                                          <form id = "contactForm"  class="col s12">
                                             <div class="row">
-                                                <div class="input-field col offset-l2 offset-m2 s12 m12 l12">
+                                                <div class="input-field col s12">
                                                      <input id="name" name = "name" type="text" class="validate" required>
                                                      <label for="name">Name</label>
                                                 </div>
-                                                <div class="input-field col offset-l2 offset-m2 s12 m12 l12">
+                                                <div class="input-field col s12">
                                                     <input id="email" name = "email" type="email" class="validate" required>
                                                     <label for="email">EMAIL</label>
                                                 </div>
-                                                 <div class="input-field col offset-l2 offset-m2 s12 m12 l12">
+                                                 <div class="input-field col s12">
                                                         <input id="mobile" name = "mobile" type="text" class="validate" required>
                                                          <label for="mobile">MOBILE NUMBER</label>
                                                  </div>
-                                                <div class="input-field col offset-l2 offset-m2 s12 m12 l12">
+                                                <div class="input-field col s12">
                                                     <textarea id="textarea" name = "msg" class="materialize-textarea" required></textarea>
                                                     <label for="textarea">MESSAGE</label>
                                                  </div>
                 
+                                                 <div class="col s12">
+                                                    <center><button class = "btn waves-effect waves-light blue darken-2 center" id = "sendButton">Send</button>
+                                                    </center>
+                                                 </div>
                                              </div>
-                                             <center><button class = "btn waves-effect waves-light blue darken-2 center" id = "sendButton">Send</button>
-                                                 </center>
                                                  <br>
                                          </form>
                                     </div>
