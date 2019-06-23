@@ -15,16 +15,12 @@
     }
 
     #about .card, #about .card-stacked {
-        padding-left: 20px;
         border-radius: 50px;
     }
 
     a {
         font-size: 20px;
     }
-
-   
- 
 
     body{
         background: #0288D1;
@@ -47,7 +43,8 @@
                      <center>
                         <div class="input-field col offset-l2 offset-m2 s12 m8 l8" style = "display: none;">
 			            <input type="number" id="long" name = "lng" value = "<%= lng %>">
-						<input type="number" id="lat" name = "lat" value = "<%= lat %>">
+                        <input type="number" id="lat" name = "lat" value = "<%= lat %>">
+                        <input type="text" id="destlandmark" name = "destlandmark" value = "<%= destlandmark %>">
                         </div></center>
 				 </div>	
                  <div class="row">
@@ -59,14 +56,20 @@
   
     <script>
 			var long = document.getElementById('long');
-			var lat = document.getElementById('lat');
+            var lat = document.getElementById('lat');
+            var destlandmark = document.getElementById('destlandmark');
 			var map = document.getElementById('gmap_canvas');
 						
-			var main_query="https://maps.google.com/maps?api=1&q=";
-			var ending = "&t=&z=13&ie=UTF8&iwloc=&output=embed";
+			// var main_query="https://maps.google.com/maps?api=1&q=";
+			// var ending = "&t=&z=13&ie=UTF8&iwloc=&output=embed";
 							
-            var query = main_query + lat.value + "," + long.value + ending;
+            // var query = main_query + lat.value + "," + long.value + ending;
             // let query = main_query + "574104" + ending;
+            let query = "http://maps.google.com/maps?saddr="
+                + lat.value + ","
+                + long.value + "&daddr="
+                + destlandmark.value + "&output=embed";
+            console.log(query);
             map.src = query;
 							
 		</script>								

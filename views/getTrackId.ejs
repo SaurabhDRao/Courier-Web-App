@@ -26,14 +26,11 @@
             border-radius: 50px;
             margin-top: 25px;
             margin-bottom: 25px;
+            padding: 0 10px 10px 10px;
         }
 
         .row {
             margin-bottom: 0;
-        }
-
-        video {
-            margin-bottom: 10px;
         }
         
         .btn:hover {
@@ -41,9 +38,7 @@
         }
 
         @media (max-width: 480px) {
-            #track-contianer {
-                padding: 0 20px;
-            }
+
         }
   </style>
 
@@ -53,14 +48,13 @@
         <!-- include navbar -->
         <% include partials/navbar.ejs %>
     </header>
-
+    
     <div class = "container" id = "track-container">
         <div class="row">
-            <form method = "POST" action = "/track/sendTrackId" id = "trackForm" class="col s12" style = "margin-top: 20px;">
+            <form id = "trackForm" class="col s12" style = "margin-top: 20px;">
                 <div class="row">
                     <div class="input-field col offset-m3 s8 m4">
-                        <input id="trackId" name = "trackId" type="text" class="validate" required = "">
-                        <label for="trackId">Package ID</label>
+                        <input id="trackId" placeholder="Package ID" name = "trackId" type="text" class="validate" required = "">
                     </div>
                     <div class="input-field col s4 m4" style = "text-align: left">
                         <button class="btn waves-effect blue waves-light" type="submit" name="action">Track
@@ -78,13 +72,6 @@
     <script src="/static/js/axios.min.js"></script>
 
     <script>
-        $(document).ready(function(){
-            $('.sidenav').sidenav();
-        });
-    </script>
-
-    <script>
-        let trackId = "";
         axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
         let scanner = new Instascan.Scanner(
             {
@@ -92,10 +79,8 @@
                 mirror: false
             }
         );
-        let tid = "";
         scanner.addListener('scan', function(content) {
             document.getElementById("trackId").value = content;
-            tid = content;
         });
         Instascan.Camera.getCameras().then(cameras => 
         {
@@ -105,6 +90,18 @@
                 console.error("Please enable Camera!");
             }
         });  
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $("#trackForm").on("submit", (e) => {
+                e.preventDefault();
+                let trackId = $("#trackId").val();
+                axios.get("/track/checkValidity/" + trackId)
+                    .then(res => {
+                        if(!res.data) M.toast({html: "Invalid package ID"});
+                        else window.location.href = "/track/showInMap/" + trackId;
+                    });
+            });
+        });
     </script>
 
  </body>

@@ -25,17 +25,13 @@ module.exports = (req, res) => {
         if(result[0].id === null)
             id = "1";
         else 
-            id = result[0].id + 1 + "";
-        id_ = id;
-        for(let i = id_.length;i < 4; i++){
-            id_ = "0" + id_;
-        }
+            id = result[0].id + 1;
         let currentDate = new Date();
-        let date = currentDate.getDate();
-        date = (date.length === 1) ? ("0" + date) : date;
-        let month = "" + currentDate.getMonth();
-        month = (month.length === 1) ? ("0" + month) : month;
-        let trackId = date + month + currentDate.getFullYear() + id;
+        let trackId = (
+            "" + currentDate.getDate() + currentDate.getMonth() + currentDate.getFullYear() 
+            + currentDate.getMinutes() + currentDate.getSeconds()
+            + uniqid().substr(Math.floor(Math.random() * 7), 3)
+        ).padEnd(15, "x");
 
         con.query(q, (err, result1) => {
             QRCode.toDataURL(trackId, function (err, qrcode) {
@@ -58,6 +54,7 @@ module.exports = (req, res) => {
                 + ", " + req.user.branchid
                 + ", " + mysql.escape(result1[0].latitude)
                 + ", " + mysql.escape(result1[0].longitude)
+                + ", " + mysql.escape(req.body.destlandmark)
                 + ");";
                 console.log(q);
                 con.query(q, (err, row, fields) => {

@@ -31,7 +31,7 @@
         <h1>Enter Courier Details</h1>
         <form action="/profile/addCourier" method = "POST"  class="col s12">
             <div class="row">
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col offset-m3 s12 m6">
                     <select name = "type" required = "">
                       <option value="speed" selected>Speed Post</option>
                       <option value="normal">Normal</option>
@@ -39,51 +39,56 @@
                     <label>Type of courier</label>
                 </div>
               
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m6">
                     <input id="srcname" name = "srcname" type="text" class="validate" required>
                     <label for="srcname">SENDER NAME</label>
                 </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="srcphone" name = "srcphone" type="tel" class="validate" required>
-                    <label for="srcphone">SENDER MOBILE</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="srcemail" name = "srcemail" type="text" class="validate" required>
-                    <label for="srcemail">SENDER EMAIL</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="srcaddress" name = "srcaddress" type="text" class="validate" required>
-                    <label for="srcaddress">SOURCE ADDRESS</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="srcpin" name = "srcpin" type="text" class="validate" required>
-                    <label for="srcpin">SOURCE PIN</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m6">
                     <input id="destname" name = "destname" type="text" class="validate" required>
                     <label for="destname">RECEIVER NAME</label>
                 </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="destaddress" name = "destaddress" type="text" class="validate" required>
-                    <label for="destaddress">DESTINATION ADDRESS</label>
+                <div class="input-field col s12 m6">
+                    <input id="srcphone" name = "srcphone" type="tel" class="validate" required>
+                    <label for="srcphone">SENDER MOBILE</label>
                 </div>
-                <div class="input-field col s12 m6 l6">
-                    <input id="destpin" name = "destpin" type="text" class="validate" required>
-                    <label for="destpin">DESTINATION  PIN</label>
-                </div>
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m6">
                     <input id="destphone" name = "destphone" type="text" class="validate" required>
                     <label for="destphone">RECEIVER MOBILE</label>
                 </div>
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m6">
+                    <input id="srcemail" name = "srcemail" type="text" class="validate" required>
+                    <label for="srcemail">SENDER EMAIL</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="destaddress" name = "destaddress" type="text" class="validate" required>
+                    <label for="destaddress">DESTINATION ADDRESS</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="srcaddress" name = "srcaddress" type="text" class="validate" required>
+                    <label for="srcaddress">SENDER ADDRESS</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="destlandmark" name = "destlandmark" type="text" class="validate" required>
+                    <label for="destlandmark">DESTINATION LANDMARK</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="srcpin" name = "srcpin" type="text" class="validate" required>
+                    <label for="srcpin">SENDER PIN</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="destpin" name = "destpin" type="text" class="validate" required>
+                    <label for="destpin">DESTINATION  PIN</label>
+                </div>
+                
+                <div class="input-field col s12 m6">
                     <input id="weight" name = "weight" type="text" class="validate" required>
                     <label for="weigt">WEIGHT (Unit: Kg)</ltabel>
                 </div>
-                  <div class="input-field col s12 m6 l6">
+                  <div class="input-field col s12 m6">
                     <input id="size" name = "size" type="text" class="validate" required>
                     <label for="size">SIZE (Units: meter, Format: w*h)</label>
                 </div>
-                <div class="input-field offset-l3 offset-m3 col s12 m6 l6">
+                <div class="input-field offset-l3 offset-m3 col s12 m6">
                     <select name = "payment" required>
                       <option value="cash" selected>CASH</option>
                       <option value="card">CARD/NET BANKING</option>

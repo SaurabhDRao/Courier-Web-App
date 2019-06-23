@@ -71,11 +71,8 @@ h1 {
     .users-container {
         padding: 0 20px 20px 20px;
     }
-    .profile-container {
-        width: 390px;
-    }
     .profile-container h1 {
         font-size: 40px;
-        margin: 0;
+        margin-top: 20px;
     }
 }

@@ -51,7 +51,8 @@ use courier;
 --     qrcode varchar(1500),
 --     branchid int,
 --     latitude varchar(50),
---     longitude varchar(50)
+--     longitude varchar(50),
+--     destlandmark varchar(100)
 -- );
 
 -- create table support (
