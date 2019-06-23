@@ -19,36 +19,36 @@
 
     <div class="container profile-container z-depth-4">
         <h1>My Profile</h1>
-        <form action="/profile/updateUser/<%= user.id %>" method = "POST"  class="col s12">
-            <div class="row">
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="username" name = "username" value = "<%= user.username %>" type="text" class="validate">
-                    <label for="username">Username</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="name" name = "name" value = "<%= user.name %>" type="text" class="validate">
-                    <label for="name">Full Name</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="post" name = "post" value = "<%= user.post %>" type="text" class="validate">
-                    <label for="post">Designation</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="email" name = "email" value = "<%= user.email %>" type="email" class="validate">
-                    <label for="email">Email</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="mobile" name = "mobile" value = "<%= user.mobile %>" type="text" class="validate">
-                    <label for="mobile">Mobile</label>
-                </div>
-                <div class="input-field col offset-l2 offset-m2 s12 m8 l8">
-                    <input id="address" name = "address" value = "<%= user.address %>" type="text" class="validate">
-                    <label for="address">Address</label>
-                </div>
+        <div class="row">
+            <div class="col offset-m2 s12 m8">
+                <table class="striped centered">
+                    <tr>
+                        <th>Name</th>
+                        <td><%= user.name %></td>
+                    </tr>
+                    <tr>
+                        <th>Username</th>
+                        <td><%= user.username %></td>
+                    </tr>
+                    <tr>
+                        <th>Designation</th>
+                        <td><%= user.post %></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><%= user.email %></td>
+                    </tr>
+                    <tr>
+                        <th>Mobile</th>
+                        <td><%= user.mobile %></td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td><%= user.address %></td>
+                    </tr>
+                </table>
             </div>
-            <!-- <button class = "btn waves-effect waves-light lighten-1" id = "saveBtn">Save</button>
-            <a href="/profile/" class = "btn waves-effect waves-light red lighten-1">Back</a> -->
-        </form>
+        </div>
         <hr>
         <button id = "toggleForm">Show form</button>
             <div class = "row" id = "addNew">

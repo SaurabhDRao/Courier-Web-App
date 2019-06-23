@@ -50,9 +50,12 @@ router.get("/updateCourier", authCheck, (req, res) => { res.render("updateCourie
 router.post("/update", authCheck, (req, res) => { updateCourier(req, res); });
 
 router.post("/changePassword", authCheck, async (req, res) => {
-	const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-	let q = "update empdetails set password = " +  mysql.escape(hashedPassword) + " where id = " + req.user.id;
+	let newPassword = req.body.password;
+	if(req.user.username !== "admin") {
+		const salt = await bcrypt.genSalt(10);
+		newPassword = await bcrypt.hash(newPassword, salt);
+	}
+	let q = "update empdetails set password = " +  mysql.escape(newPassword) + " where id = " + req.user.id;
 	con.query(q, (err, row, fields) => {
 		if(err) throw err;
 		res.send("Password updated successfully!");
