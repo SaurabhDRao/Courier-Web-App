@@ -4,6 +4,8 @@ open terminal in the current folder and run the following command to install all
 then to run use the following command
 -> node app
 
+open browser and type the following url -> localhost:3000
+
 note that db connection gets interrupted sometimes so u need to stop the server (press ctrl + C) and run the "node app" command again.
 
 for logging in for the first time there are no users.
