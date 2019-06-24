@@ -7,6 +7,9 @@ const updateEmployee = require("./functions/updateEmployee");
 const deleteEmployee = require("./functions/deleteEmployee");
 const addCourier = require("./functions/addCourier");
 const updateCourier = require("./functions/updateCourier");
+const addBranch = require("./functions/addBranch");
+const updateBranch = require("./functions/updateBranch");
+const deleteBranch = require("./functions/deleteBranch");
 
 const authCheck = (req,res,next) => {
 	if(!req.user){
@@ -64,5 +67,26 @@ router.post("/changePassword", authCheck, async (req, res) => {
 		res.send("Password updated successfully!");
 	});
 });
+
+router.get("/branches", authCheck, (req, res) => {
+	let q = "select * from branch";
+	con.query(q, (err, result) => {
+		res.render("branches", { branches: result, user: req.user });
+	});
+});
+
+router.post("/addNewBranch", authCheck, (req, res) => { addBranch(req, res); });
+
+router.get("/editBranchDetails/:id", authCheck, (req, res) => {
+	let id = req.params.id;
+	let q = "select * from branch where branchid = " + id;
+	con.query(q, (err, result) => {
+		res.render("branch", { branch: result[0] });
+	});
+});
+
+router.post("/updateBranch/:id", authCheck, (req, res) => { updateBranch(req, res); });
+
+router.get("/deleteBranch/:id", authCheck, (req, res) => { deleteBranch(req, res); });
 
 module.exports = router;

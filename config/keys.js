@@ -1,19 +1,13 @@
 module.exports = {
   session: {
-    cookieKey: "knightshadescookie"
-  },
-  vitvaradb: {
-      host: "auth-db189.hostinger.in",
-      user: "u435393063_nitte",
-      password: "nitte@tantr123",
-      database: "u435393063_tantr"
+    cookieKey: "whatevercookie"
   },
   database: {
-    username: "KnightShade",
-    password: "dragon391"
+    username: "<YOUR_DATABASE_USERNAME>",
+    password: "<YOUR_DATABASE_PASSWORD"
   },
   gmail: {
-    username: "lcouerier3@gmail.com",
-    password: "I@madmin123"
+    username: "<YOUR_GMAIL_USERNAME>",
+    password: "<YOUR_GMAIL_PASSWORD>"
   }
 };
