@@ -4,12 +4,7 @@ var db;
 
 function connectDatabase() {
     if (!db) {
-        db = mysql.createConnection({
-          host: "localhost",
-          user: keys.databases.username,
-          password: keys.databases.password,
-          database: "courier"
-        });
+        db = mysql.createConnection(keys.vitvaradb);
 
         db.connect(function(err){
             if(!err) {

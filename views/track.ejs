@@ -68,7 +68,7 @@
             let query = "http://maps.google.com/maps?saddr="
                 + lat.value + ","
                 + long.value + "&daddr="
-                + destlandmark.value + "&output=embed";
+                + (destlandmark.value).split(" ").join("+") + "&output=embed";
             console.log(query);
             map.src = query;
 							
