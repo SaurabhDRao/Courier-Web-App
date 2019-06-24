@@ -8,6 +8,10 @@ module.exports = {
       password: "nitte@tantr123",
       database: "u435393063_tantr"
   },
+  database: {
+    username: "KnightShade",
+    password: "dragon391"
+  },
   gmail: {
     username: "lcouerier3@gmail.com",
     password: "I@madmin123"

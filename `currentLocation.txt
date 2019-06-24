@@ -1,1 +1,0 @@
-navigator.geolocation.getCurrentLocation((pos) => { console.log(pos); })

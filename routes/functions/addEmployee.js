@@ -36,18 +36,18 @@ module.exports = async (req, res) => {
             + mysql.escape(address) + ", "
             + mysql.escape(email) + ", " 
             + mysql.escape(hashedPassword) + ", "
-            + req.user.branchid + ");"
+            + req.body.branchid + ");"
         console.log(q);
         con.query(q, (err, rows, fields) => {
             if(err) throw err;
             res.redirect("/profile/employees");
         });
-        let emailBody = "Welcome " + name 
-            + "!\nYou have joined L-Courier and have been assigned the post of " + post
-            + ".\nYour username is " + username
-            + ".\nYour password is " + password
-            + ".\nPlease be sure to change your password when you login next time."
-        let subject = "Welcome"
-        sendMail(email, subject, emailBody);
+        // let emailBody = "Welcome " + name 
+        //     + "!\nYou have joined L-Courier and have been assigned the post of " + post
+        //     + ".\nYour username is " + username
+        //     + ".\nYour password is " + password
+        //     + ".\nPlease be sure to change your password when you login next time."
+        // let subject = "Welcome"
+        // sendMail(email, subject, emailBody);
     });
 }

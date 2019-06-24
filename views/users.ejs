@@ -69,6 +69,14 @@
                             </select>
                            <label>Designation</label>
                        </div>
+                       <div class="input-field offset-l3 offset-m3 col s12 m6 l6">
+                            <select name = "branchid" required>
+                                <% for(let i = 1; i <= branches; i++){ %>
+                                    <option value="<%= i %>"><%= i %></option>
+                                <% } %>
+                            </select>
+                            <label>Branch ID</label>
+                        </div>
                         <div class="input-field col offset-l3 offset-m3 s12 m6 l6">
                             <input id="email" name = "email" value = "" type="email" class="validate" required>
                             <label for="email">Email</label>

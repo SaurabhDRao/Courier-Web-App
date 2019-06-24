@@ -22,8 +22,11 @@ router.get("/", authCheck, (req, res) => {
 
 router.get("/employees", authCheck, (req, res) => {
 	let q = "select * from empdetails";
-	con.query(q, (err, result) => {
-		res.render("users", { "users": result, user: req.user });
+	con.query(q, (err, result1) => {
+		q = "select count(branchid) as branches from branch;"
+		con.query(q, (err, result2) => {
+			res.render("users", { "users": result1, user: req.user, branches: result2[0].branches });
+		})
 	});
 });
 
