@@ -42,8 +42,7 @@
 				 <div class="row">
                      <center>
                         <div class="input-field col offset-l2 offset-m2 s12 m8 l8" style = "display: none;">
-			            <input type="number" id="long" name = "lng" value = "<%= lng %>">
-                        <input type="number" id="lat" name = "lat" value = "<%= lat %>">
+			            <input type="text" id="currentlandmark" name = "currentlandmark" value = "<%= currentlandmark %>">
                         <input type="text" id="destlandmark" name = "destlandmark" value = "<%= destlandmark %>">
                         </div></center>
 				 </div>	
@@ -55,8 +54,7 @@
         
   
     <script>
-			var long = document.getElementById('long');
-            var lat = document.getElementById('lat');
+			var currentlandmark = document.getElementById('currentlandmark');
             var destlandmark = document.getElementById('destlandmark');
 			var map = document.getElementById('gmap_canvas');
 						
@@ -66,8 +64,8 @@
             // var query = main_query + lat.value + "," + long.value + ending;
             // let query = main_query + "574104" + ending;
             let query = "http://maps.google.com/maps?saddr="
-                + lat.value + ","
-                + long.value + "&daddr="
+                + (currentlandmark.value).split(" ").join("+")
+                + "&daddr="
                 + (destlandmark.value).split(" ").join("+") + "&output=embed";
             console.log(query);
             map.src = query;

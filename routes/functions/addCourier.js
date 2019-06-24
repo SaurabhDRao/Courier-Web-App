@@ -20,7 +20,7 @@ module.exports = (req, res) => {
     let size = req.body.size;
     let q = "select max(id) as id from couriers";
     con.query(q, (err, result) => {
-        q = "select latitude, longitude from branch where branchid = " + req.user.branchid;
+        q = "select landmark from branch where branchid = " + req.user.branchid;
         let id;
         if(result[0].id === null)
             id = "1";
@@ -52,8 +52,7 @@ module.exports = (req, res) => {
                 + ", " + mysql.escape(size)
                 + ", " + mysql.escape(qrcode)
                 + ", " + req.user.branchid
-                + ", " + mysql.escape(result1[0].latitude)
-                + ", " + mysql.escape(result1[0].longitude)
+                + ", " + mysql.escape(result1[0].landmark)
                 + ", " + mysql.escape(req.body.destlandmark)
                 + ");";
                 console.log(q);

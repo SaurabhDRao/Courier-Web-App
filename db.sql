@@ -3,9 +3,10 @@ use courier;
 
 -- create table branch(
 --     branchid int primary key,
---     location varchar(50),
---     latitude varchar(50),
---     longitude varchar(50)
+--     city varchar(50),
+--     address varchar(50),
+--     contact varchar(20),
+--     landmark varchar(50)
 -- );
 
 -- create table empdetails(
@@ -20,8 +21,8 @@ use courier;
 --     branchid int
 -- );
 
--- insert into branch values(1, "Karkala", "13.2151", "74.9962"), (2, "Mangalore", "12.9141", "74.8560"), 
---     (3, "Udupi", "13.3409", "74.7421"), (4, "Bangalore", "12.9716", "77.5946");
+-- insert into branch values(1, "Karkala", "Karkala Bus Stand", "233966", "Karkala"), (2, "Mangalore", "near KSRTC Bus Stand", "233966", "KSRTC Bus Stand"), 
+--     (3, "Udupi", "Udupi bus stand", "233966", "Udupi"), (4, "Bangalore", "Near majestic", "233966", "Bangalore");
 -- insert into empdetails values 
 --     (1, "admin", "admin", "admin", 1234567890, "whatever", "admin@admin.com", "iamadmin", 1);
 
@@ -45,8 +46,7 @@ use courier;
 --     size varchar(20),
 --     qrcode varchar(1500),
 --     branchid int,
---     latitude varchar(50),
---     longitude varchar(50),
+--     currentlandmark varchar(100),
 --     destlandmark varchar(100)
 -- );
 
