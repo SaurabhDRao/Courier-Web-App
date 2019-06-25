@@ -6,10 +6,10 @@ function connectDatabase() {
     if (!db) {
         db = mysql.createConnection({
             host: "localhost",
-            user: keys.database.username,
-            password: keys.database.password,
+            user: keys.localdb.username,
+            password: keys.localdb.password,
             database: "courier"
-          });
+        });
 
         db.connect(function(err){
             if(!err) {

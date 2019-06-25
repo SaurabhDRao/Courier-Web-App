@@ -1,13 +1,13 @@
 module.exports = {
   session: {
-    cookieKey: "whatevercookie"
+    cookieKey: "knightshadescookie"
   },
-  database: {
+  localdb: {
     username: "<YOUR_DATABASE_USERNAME>",
-    password: "<YOUR_DATABASE_PASSWORD"
+    password: "<YOUR_DATABASE_PASSWORD>"
   },
   gmail: {
-    username: "<YOUR_GMAIL_USERNAME>",
-    password: "<YOUR_GMAIL_PASSWORD>"
+    username: "lcouerier3@gmail.com",
+    password: "I@madmin123"
   }
 };

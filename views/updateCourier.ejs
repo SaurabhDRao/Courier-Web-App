@@ -57,6 +57,10 @@
     </header>
 
     <div class = "container" id = "track-container">
+        <label>
+            <input type="checkbox" id = "delivered" class="filled-in" />
+            <span>Delivered?</span>
+        </label>
         <video id="preview"></video>
         <!-- <div class="row">
             <form class="col s12">
@@ -97,13 +101,16 @@
             // document.getElementById("trackId").value = content;
             if(tid !== content){
                 tid = content;
-                let trackIdData = { trackId: content };
-                console.log(trackIdData);
-                axios.post("/profile/update", encodeForm(trackIdData), {headers: {'Accept': 'application/json'}})
+                let checkbox = document.getElementById("delivered").checked;
+                let trackData = { trackId: content, delivered: checkbox };
+                console.log(trackData, checkbox);
+                axios.post("/profile/update", encodeForm(trackData), {headers: {'Accept': 'application/json'}})
                 .then((res) => {
                     M.toast({html: res.data});
                     console.log(res);
                 });
+            } else {
+                M.toast({html: "That package id is already updated! Try a different one"});
             }
         });
         Instascan.Camera.getCameras().then(cameras => 

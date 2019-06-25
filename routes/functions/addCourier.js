@@ -54,6 +54,7 @@ module.exports = (req, res) => {
                 + ", " + req.user.branchid
                 + ", " + mysql.escape(result1[0].landmark)
                 + ", " + mysql.escape(req.body.destlandmark)
+                + ", 'on the way'"
                 + ");";
                 console.log(q);
                 con.query(q, (err, row, fields) => {
